@@ -1,12 +1,58 @@
 // pages/Course.jsx
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+
   useEffect(() => {
     if (window.lucide) {
       window.lucide.createIcons();
     }
   }, [currentPeriod]);
+
+  // Datos simulados para los documentos
+  const documents = {
+    contrato: '/docs/contrato_didactico.docx',
+    introEvaluacion: 'https://www.youtube.com/embed/dummy',
+    rubricas: {
+      A: '/docs/rubrica_opcionA.pdf',
+      B: '/docs/rubrica_opcionB.pdf',
+      C: '/docs/rubrica_opcionC.pdf',
+      D: '/docs/rubrica_opcionD.pdf',
+      E: '/docs/rubrica_opcionE.pdf',
+    },
+    planeacion: '/docs/planeacion_didactica_periodo' + currentPeriod + '.docx',
+    guionDidactico: [
+      { unidad: 1, file: '/docs/guion_unidad1.pdf' },
+      { unidad: 2, file: '/docs/guion_unidad2.pdf' },
+      { unidad: 3, file: '/docs/guion_unidad3.pdf' },
+      { unidad: 4, file: '/docs/guion_unidad4.pdf' }, // faltan 2
+      { unidad: 5, file: '/docs/guion_unidad5.pdf' },
+    ],
+    guias: {
+      ejercicios: '/docs/ejercicios_por_lista.docx',
+      preguntasConceptos: '/docs/preguntas_conceptos.docx',
+      preguntasGLC: '/docs/preguntas_glc.docx',
+      evaluacionGLC: '/docs/evaluacion_glc.docx',
+      practicas: {
+        msdos: '/docs/practicas_msdos.pdf',
+        awk: '/docs/practicas_awk.pdf',
+        jflap: '/docs/guia_jflap.pdf',
+        didacmax: '/docs/guia_didacmax.pdf',
+      },
+    },
+    reposicion: '/docs/evaluaciones_reposicion.pdf',
+    proyectosAnteriores: [
+      { titulo: 'Analizador Léxico en C', autor: 'Juan Pérez', año: 2022, file: '/docs/proyecto_lexico.pdf' },
+      { titulo: 'Compilador Didáctico', autor: 'Ana López', año: 2023, file: '/docs/proyecto_compilador.pdf' },
+      { titulo: 'Autómatas con JFLAP', autor: 'Carlos Ruiz', año: 2021, file: '/docs/proyecto_automatas.pdf' },
+    ],
+    tesis: '/docs/tesis_diseno_instruccional.pdf',
+  };
+
+  const handleProtectedDownload = () => {
+    setShowPasswordModal(true);
+  };
 
   return (
     <div className="max-w-6xl mx-auto fade-in">
@@ -24,224 +70,302 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
               }
             `}
           >
-            {period === 1 && 'Primer Periodo'}
-            {period === 2 && 'Segundo Periodo'}
-            {period === 3 && 'Tercer Periodo'}
+            Periodo {period}
           </button>
         ))}
       </div>
 
-      {/* Intro del Periodo */}
-      <div className="bg-white rounded-xl p-6 mb-8 shadow-sm flex flex-col md:flex-row gap-6 items-center">
-        <div className="w-full md:w-1/3 aspect-video bg-gray-100 rounded-lg relative flex items-center justify-center cursor-pointer group">
-          <div className="absolute inset-0 bg-gray-900 rounded-lg opacity-10 group-hover:opacity-20 transition"></div>
-          <i data-lucide="play-circle" className="w-12 h-12 text-[#6b2132]"></i>
+      {/* Banner con foto de UPIICSA */}
+      <div 
+        className="relative rounded-xl overflow-hidden mb-8 h-48 bg-cover bg-center"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')" }}
+      >
+        <div className="absolute inset-0 bg-green-800 bg-opacity-40 flex items-center justify-center">
+          <h2 className="text-4xl font-bold text-white text-center drop-shadow-lg">
+            Teoría de la Computación y Compiladores
+          </h2>
         </div>
-        <div className="w-full md:w-2/3">
-          <h3 className="text-xl font-bold text-gray-800 mb-2">
-            Resumen Ejecutivo: Periodo {currentPeriod}
-          </h3>
-          <p className="text-gray-600 text-sm mb-4">
-            En este video de 5 minutos sintetizamos los conceptos clave de la unidad, 
-            incluyendo análisis léxico y sintáctico. Ideal para repaso rápido antes de la evaluación.
-          </p>
-          <div className="flex gap-2">
-            <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">
+      </div>
+
+      {/* Grid principal de documentos (fondo verde en los enlaces) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Contrato Didáctico */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+          <div className="bg-green-600 h-2"></div>
+          <div className="p-5">
+            <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
+              <i data-lucide="file-text" className="text-green-600 w-5 h-5"></i>
+              Contrato Didáctico
+            </h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Documento Word para llenar con SI/NO, firmar y entregar.
+            </p>
+            <a 
+              href={documents.contrato} 
+              download
+              className="inline-flex items-center gap-2 bg-green-100 hover:bg-green-200 text-green-800 text-sm px-4 py-2 rounded-lg w-full justify-center"
+            >
+              <i data-lucide="download" className="w-4 h-4"></i>
+              Descargar Contrato
+            </a>
+          </div>
+        </div>
+
+        {/* Introducción a las 5 opciones de evaluación */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+          <div className="bg-green-600 h-2"></div>
+          <div className="p-5">
+            <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
+              <i data-lucide="video" className="text-green-600 w-5 h-5"></i>
+              5 Opciones de Evaluación
+            </h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Auto-evaluación, Co-evaluación, Evaluación Continua, Sumativa, Hetero-evaluación.
+            </p>
+            <div className="aspect-video bg-gray-100 rounded mb-3">
+              <iframe 
+                src={documents.introEvaluacion} 
+                className="w-full h-full rounded"
+                title="Video introductorio"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <a 
+              href="#"
+              className="text-sm text-green-700 hover:underline flex items-center gap-1"
+            >
+              <i data-lucide="chevron-right" className="w-4 h-4"></i>
+              Ver más detalles
+            </a>
+          </div>
+        </div>
+
+        {/* Rúbricas de AA */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+          <div className="bg-green-600 h-2"></div>
+          <div className="p-5">
+            <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
+              <i data-lucide="clipboard-list" className="text-green-600 w-5 h-5"></i>
+              Rúbricas de AA
+            </h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Opciones de evaluación con rúbricas descargables.
+            </p>
+            <div className="space-y-2 max-h-60 overflow-y-auto">
+              {['A: Evaluación Continua', 'B: Participaciones', 'C: Presentaciones', 'D: Proyecto Excelente', 'E: Exámenes'].map((opt, idx) => (
+                <div key={idx} className="flex items-center justify-between bg-green-50 p-2 rounded">
+                  <span className="text-sm">{opt}</span>
+                  <a href={documents.rubricas[['A','B','C','D','E'][idx]]} download className="text-green-700 hover:text-green-900">
+                    <i data-lucide="download" className="w-4 h-4"></i>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Planeación Didáctica */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+          <div className="bg-green-600 h-2"></div>
+          <div className="p-5">
+            <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
+              <i data-lucide="calendar" className="text-green-600 w-5 h-5"></i>
               Planeación Didáctica
-            </span>
-            <span className="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">
-              Acuerdos
-            </span>
+            </h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Periodo {currentPeriod} - Formato Word ajustable.
+            </p>
+            <a 
+              href={documents.planeacion} 
+              download
+              className="inline-flex items-center gap-2 bg-green-100 hover:bg-green-200 text-green-800 text-sm px-4 py-2 rounded-lg w-full justify-center"
+            >
+              <i data-lucide="download" className="w-4 h-4"></i>
+              Descargar Planeación
+            </a>
           </div>
         </div>
-      </div>
 
-      {/* GRID DE CONTENIDO */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-        {/* Entendimiento */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
-          <div className="bg-id-entendimiento h-2 w-full"></div>
-          <div className="p-5 flex-1">
-            <div className="flex items-center justify-between mb-3">
-              <h4 className="font-bold text-gray-800 flex items-center gap-2">
-                <i data-lucide="book-open" className="text-lime-600 w-4 h-4"></i> 
-                Entendimiento
-              </h4>
-              <span className="text-xs bg-lime-100 text-lime-800 px-2 py-1 rounded-full">
-                Teoría
-              </span>
-            </div>
-            <p className="text-xs text-gray-500 mb-4">
-              Material de lectura, guión didáctico y conceptos base.
+        {/* Guión Didáctico (Apuntes) */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+          <div className="bg-green-600 h-2"></div>
+          <div className="p-5">
+            <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
+              <i data-lucide="book" className="text-green-600 w-5 h-5"></i>
+              Guión Didáctico
+            </h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Apuntes por unidad (faltan 2 unidades por terminar).
             </p>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#6b2132] cursor-pointer">
-                <i data-lucide="file-text" className="w-4 h-4"></i> Apuntes de Unidad 1.pdf
+            <div className="space-y-2">
+              {documents.guionDidactico.map((unidad) => (
+                <div key={unidad.unidad} className="flex items-center justify-between">
+                  <span className="text-sm">Unidad {unidad.unidad}</span>
+                  <a href={unidad.file} download className="text-green-700 hover:text-green-900">
+                    <i data-lucide="download" className="w-4 h-4"></i>
+                  </a>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Guías de Estudio */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+          <div className="bg-green-600 h-2"></div>
+          <div className="p-5">
+            <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
+              <i data-lucide="graduation-cap" className="text-green-600 w-5 h-5"></i>
+              Guías de Estudio
+            </h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Ejercicios, preguntas y prácticas.
+            </p>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-center justify-between">
+                Ejercicios por lista
+                <a href={documents.guias.ejercicios} download className="text-green-700">📥</a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#6b2132] cursor-pointer">
-                <i data-lucide="file-text" className="w-4 h-4"></i> Guión Didáctico.docx
+              <li className="flex items-center justify-between">
+                Preguntas conceptos
+                <a href={documents.guias.preguntasConceptos} download className="text-green-700">📥</a>
               </li>
-              <li className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#6b2132] cursor-pointer">
-                <i data-lucide="presentation" className="w-4 h-4"></i> Presentación Autómatas.pptx
+              <li className="flex items-center justify-between">
+                Preguntas GLC
+                <a href={documents.guias.preguntasGLC} download className="text-green-700">📥</a>
+              </li>
+              <li className="flex items-center justify-between">
+                Evaluación GLC
+                <a href={documents.guias.evaluacionGLC} download className="text-green-700">📥</a>
               </li>
             </ul>
+            <details className="mt-3">
+              <summary className="text-sm text-green-700 cursor-pointer">Prácticas (MS-DOS, AWK, JFLAP, DIDACMAX)</summary>
+              <div className="mt-2 space-y-2 pl-2">
+                <div className="flex justify-between">
+                  MS-DOS / JCL
+                  <a href={documents.guias.practicas.msdos} download className="text-green-700">📥</a>
+                </div>
+                <div className="flex justify-between">
+                  AWK
+                  <a href={documents.guias.practicas.awk} download className="text-green-700">📥</a>
+                </div>
+                <div className="flex justify-between">
+                  JFLAP
+                  <a href={documents.guias.practicas.jflap} download className="text-green-700">📥</a>
+                </div>
+                <div className="flex justify-between">
+                  DIDACMAX 2000
+                  <a href={documents.guias.practicas.didacmax} download className="text-green-700">📥</a>
+                </div>
+              </div>
+            </details>
           </div>
         </div>
 
-        {/* Aplicación */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
-          <div className="bg-id-aplicacion h-2 w-full"></div>
-          <div className="p-5 flex-1">
-            <div className="flex items-center justify-between mb-3">
-              <h4 className="font-bold text-gray-800 flex items-center gap-2">
-                <i data-lucide="cpu" className="text-sky-600 w-4 h-4"></i> 
-                Aplicación
-              </h4>
-              <span className="text-xs bg-sky-100 text-sky-800 px-2 py-1 rounded-full">
-                Herramientas
-              </span>
-            </div>
-            <p className="text-xs text-gray-500 mb-4">
-              Ejercicios prácticos y software de apoyo.
+        {/* Evaluaciones de Reposición */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+          <div className="bg-green-600 h-2"></div>
+          <div className="p-5">
+            <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
+              <i data-lucide="lock" className="text-green-600 w-5 h-5"></i>
+              Evaluaciones de Reposición
+            </h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Protegido con contraseña (solicitar al profesor).
             </p>
-            
-            <div className="bg-gray-50 p-3 rounded border border-gray-200 mb-3">
-              <div className="flex items-center gap-2 mb-2">
-                <i data-lucide="box" className="text-gray-600"></i>
-                <span className="font-bold text-sm">Didacmáx 2000</span>
-              </div>
-              <p className="text-[10px] text-gray-500 mb-2">
-                Compilador didáctico (16-bit). Requiere DOSBox o emulador.
-              </p>
-              <div className="flex gap-2">
-                <button className="flex-1 bg-sky-500 text-white text-xs py-1 rounded hover:bg-sky-600">
-                  Descargar
-                </button>
-                <button className="flex-1 bg-white border border-gray-300 text-xs py-1 rounded hover:bg-gray-50">
-                  Guía PDF
-                </button>
-              </div>
-            </div>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#6b2132] cursor-pointer">
-                <i data-lucide="download" className="w-4 h-4"></i> JFLAP Tool
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Creación */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
-          <div className="bg-id-creacion h-2 w-full"></div>
-          <div className="p-5 flex-1">
-            <div className="flex items-center justify-between mb-3">
-              <h4 className="font-bold text-gray-800 flex items-center gap-2">
-                <i data-lucide="lightbulb" className="text-yellow-600 w-4 h-4"></i> 
-                Creación
-              </h4>
-              <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full">
-                Proyectos
-              </span>
-            </div>
-            <p className="text-xs text-gray-500 mb-4">
-              Espacio colaborativo y portafolio de evidencias.
-            </p>
-            
-            <button className="w-full border-2 border-dashed border-yellow-400 bg-yellow-50 text-yellow-700 py-2 rounded-lg text-sm font-medium hover:bg-yellow-100 mb-4 transition flex justify-center items-center gap-2">
-              <i data-lucide="upload-cloud"></i> Subir a mi Portafolio
+            <button
+              onClick={handleProtectedDownload}
+              className="inline-flex items-center gap-2 bg-green-100 hover:bg-green-200 text-green-800 text-sm px-4 py-2 rounded-lg w-full justify-center"
+            >
+              <i data-lucide="key" className="w-4 h-4"></i>
+              Solicitar acceso
             </button>
-
-            <div className="border-t pt-3">
-              <p className="text-xs font-bold text-gray-500 mb-2">Repositorio de Estudiantes</p>
-              <div className="flex -space-x-2 overflow-hidden mb-2">
-                <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://ui-avatars.com/api/?name=Juan" alt=""/>
-                <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://ui-avatars.com/api/?name=Ana" alt=""/>
-                <img className="inline-block h-6 w-6 rounded-full ring-2 ring-white" src="https://ui-avatars.com/api/?name=Pedro" alt=""/>
-                <div className="h-6 w-6 rounded-full bg-gray-100 ring-2 ring-white flex items-center justify-center text-[10px] text-gray-500">
-                  +40
-                </div>
-              </div>
-              <a href="#" className="text-xs text-blue-600 hover:underline">
-                Ver proyectos destacados
-              </a>
-            </div>
           </div>
         </div>
 
-        {/* Análisis */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
-          <div className="bg-id-analisis h-2 w-full"></div>
-          <div className="p-5 flex-1">
-            <div className="flex items-center justify-between mb-3">
-              <h4 className="font-bold text-gray-800 flex items-center gap-2">
-                <i data-lucide="bar-chart-2" className="text-indigo-800 w-4 h-4"></i> 
-                Análisis
-              </h4>
-            </div>
-            <p className="text-xs text-gray-500 mb-2">Casos de estudio y comparativas.</p>
-            <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-sm text-gray-700">
-                <i data-lucide="file-bar-chart" className="w-4 h-4"></i> Comparativa de Lenguajes.pdf
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Evaluación & Recuerdo */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden md:col-span-2 flex flex-col">
-          <div className="flex w-full">
-            <div className="bg-id-evaluacion h-2 w-1/2"></div>
-            <div className="bg-id-recuerdo h-2 w-1/2"></div>
-          </div>
-          <div className="p-5 flex-1">
-            <div className="flex items-center justify-between mb-4">
-              <h4 className="font-bold text-gray-800 flex items-center gap-2">
-                <i data-lucide="clipboard-check" className="text-pink-600 w-4 h-4"></i> 
-                Evaluación & Gamificación
-              </h4>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Evaluación */}
-              <div>
-                <h5 className="text-sm font-bold text-pink-600 mb-2 uppercase">
-                  5 Opciones de Evaluación
-                </h5>
-                <div className="space-y-2">
-                  {['Examen Tradicional', 'Proyecto Integrador', 'Portafolio Evidencias', 'Exposición Oral', 'Investigación'].map((item, index) => (
-                    <div key={index} className="flex items-center justify-between p-2 bg-pink-50 rounded border border-pink-100">
-                      <span className="text-sm">{index + 1}. {item}</span>
-                      <button className="text-pink-600 hover:text-pink-800">
-                        <i data-lucide="download" className="w-4 h-4"></i>
-                      </button>
+        {/* Proyectos Excelentes Anteriores */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+          <div className="bg-green-600 h-2"></div>
+          <div className="p-5">
+            <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
+              <i data-lucide="award" className="text-green-600 w-5 h-5"></i>
+              Proyectos Excelentes
+            </h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Ejemplos de ciclos anteriores.
+            </p>
+            <div className="space-y-3">
+              {documents.proyectosAnteriores.map((proyecto, idx) => (
+                <div key={idx} className="border-b pb-2 last:border-0">
+                  <div className="flex justify-between items-center">
+                    <div>
+                      <p className="text-sm font-medium">{proyecto.titulo}</p>
+                      <p className="text-xs text-gray-500">{proyecto.autor} ({proyecto.año})</p>
                     </div>
-                  ))}
+                    <a href={proyecto.file} download className="text-green-700">📥</a>
+                  </div>
                 </div>
-              </div>
-
-              {/* Gamificación */}
-              <div>
-                <h5 className="text-sm font-bold text-fuchsia-600 mb-2 uppercase">
-                  Recuerdo (Gamificación)
-                </h5>
-                <div className="grid grid-cols-2 gap-2">
-                  <button className="p-3 bg-fuchsia-50 border border-fuchsia-100 rounded hover:bg-fuchsia-100 text-center flex flex-col items-center justify-center gap-2">
-                    <i data-lucide="gamepad-2" className="text-fuchsia-600"></i>
-                    <span className="text-xs font-medium">Kahoot! Repaso</span>
-                  </button>
-                  <button className="p-3 bg-fuchsia-50 border border-fuchsia-100 rounded hover:bg-fuchsia-100 text-center flex flex-col items-center justify-center gap-2">
-                    <i data-lucide="layout-grid" className="text-fuchsia-600"></i>
-                    <span className="text-xs font-medium">WordWall</span>
-                  </button>
-                  <button className="col-span-2 p-2 text-xs text-gray-500 hover:text-gray-800 underline">
-                    Ver Rúbricas de Evaluación
-                  </button>
-                </div>
-              </div>
+              ))}
             </div>
+          </div>
+        </div>
+
+        {/* Tesis Doctoral */}
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+          <div className="bg-green-600 h-2"></div>
+          <div className="p-5">
+            <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
+              <i data-lucide="file-text" className="text-green-600 w-5 h-5"></i>
+              Tesis Doctoral
+            </h3>
+            <p className="text-xs text-gray-500 mb-3">
+              Diseño Instruccional para Teoría de la Computación y Compiladores (en proceso).
+            </p>
+            <a 
+              href="/Tesis"
+              className="inline-flex items-center gap-2 bg-green-100 hover:bg-green-200 text-green-800 text-sm px-4 py-2 rounded-lg w-full justify-center"
+            >
+              <i data-lucide="external-link" className="w-4 h-4"></i>
+              Ver más
+            </a>
           </div>
         </div>
       </div>
+
+      {/* Modal para contraseña (simulado) */}
+      {showPasswordModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-xl max-w-sm w-full">
+            <h3 className="text-lg font-bold mb-4">Evaluaciones de Reposición</h3>
+            <p className="text-sm text-gray-600 mb-4">
+              Ingrese la contraseña proporcionada por el profesor:
+            </p>
+            <input 
+              type="password" 
+              className="w-full p-2 border rounded mb-4"
+              placeholder="Contraseña"
+            />
+            <div className="flex justify-end gap-2">
+              <button 
+                onClick={() => setShowPasswordModal(false)}
+                className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded"
+              >
+                Cancelar
+              </button>
+              <button 
+                onClick={() => {
+                  alert('Descarga simulada (contraseña correcta)');
+                  setShowPasswordModal(false);
+                }}
+                className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+              >
+                Descargar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

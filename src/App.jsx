@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Home from './pages/Home';
 import Course from './pages/Course';
+import OtherCourse from './pages/OtherCourse';
 import Contact from './pages/Contact';
 import GenericPage from './pages/GenericPage';
 import SearchResults from './pages/SearchResults';
@@ -27,34 +28,38 @@ function App() {
     switch (currentView) {
       case 'Inicio':
         return <Home onNavigate={setCurrentView} />;
-      
-      case 'Ambientes de Prog.':
-      case 'Compiladores':
-      case 'Contexto Nacional':
-      case 'Sistemas Operativos':
-      case 'SO en Red':
-      case 'Teoría de la Comp.':
-      case 'Teoría Leng. y Comp.':
-      case 'Maestría Educación':
+
+      // Solo Teoría de la Computación. tiene el contenido detallado
+      case 'Teoría de la Computación.':
         return (
-          <Course 
+          <Course
             courseName={currentView}
             currentPeriod={currentPeriod}
             onPeriodChange={setCurrentPeriod}
           />
         );
-      
+
+      // Las demás materias usan el componente genérico
+      case 'Ambientes de Programacion.':
+      case 'Compiladores':
+      case 'Contexto Nacional III':
+      case 'Sistemas Operativos':
+      case 'SO en Red':
+      case 'Teoría de Lenguajes':
+      case 'UDF Maestria':
+        return <OtherCourse courseName={currentView} />;
+
       case 'Contacto':
         return <Contact />;
-      
+
       case 'Presentaciones':
       case 'Sobre Mi':
       case 'Tesis':
         return <GenericPage pageName={currentView} />;
-      
+
       case 'Resultados':
         return <SearchResults query={searchQuery} files={mockFiles} />;
-      
+
       default:
         return <Home onNavigate={setCurrentView} />;
     }
@@ -67,20 +72,20 @@ function App() {
 
   return (
     <div className="flex h-screen overflow-hidden text-gray-800 bg-gray-50">
-      <Sidebar 
+      <Sidebar
         currentView={currentView}
         onNavigate={setCurrentView}
         isMobileOpen={isMobileMenuOpen}
         onMobileClose={() => setIsMobileMenuOpen(false)}
       />
-      
+
       <main className="flex-1 flex flex-col relative min-w-0 bg-gray-50">
-        <Header 
+        <Header
           title={currentView}
           onSearch={handleSearch}
           onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         />
-        
+
         <div id="contentArea" className="flex-1 overflow-y-auto p-6 md:p-8">
           {renderContent()}
         </div>

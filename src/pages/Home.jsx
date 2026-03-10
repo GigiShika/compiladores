@@ -10,51 +10,43 @@ const Home = ({ onNavigate }) => {
 
   return (
     <div className="max-w-5xl mx-auto fade-in">
-      <div className="bg-gradient-to-r from-[#6b2132] to-gray-800 rounded-2xl p-10 text-white mb-8 shadow-lg">
-        <h1 className="text-4xl font-bold mb-4">Bienvenida al Portal de Aprendizaje</h1>
-        <p className="text-lg opacity-90 max-w-2xl">
-          Plataforma de Diseño Instruccional del IPN. Aquí encontrarás todos los recursos, 
-          herramientas y evaluaciones para tus unidades de aprendizaje.
-        </p>
-        <div className="mt-6 flex gap-4">
-          <button 
-            onClick={() => onNavigate('Compiladores')}
-            className="bg-white text-[#6b2132] px-6 py-2 rounded-full font-bold hover:bg-gray-100 transition"
-          >
-            Ir a mis cursos
-          </button>
-          <button className="bg-transparent border border-white px-6 py-2 rounded-full font-bold hover:bg-white hover:text-gray-900 transition">
-            Ver tutorial
-          </button>
+      {/* Banner con foto de UPIICSA */}
+      <div
+        className="relative rounded-2xl overflow-hidden mb-8 h-64 bg-cover bg-center"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-[#6b2132]/80 to-green-800/80 flex items-center justify-center">
+          <div className="text-center text-white px-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">Bienvenida al Portal de Aprendizaje</h1>
+            <p className="text-xl max-w-2xl mx-auto">
+              Plataforma de Diseño Instruccional del IPN - UPIICSA<br />
+              <span className="font-semibold">Teoría de la Computación y Compiladores</span>
+            </p>
+          </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Video Intro */}
+        {/* Video Introductorio */}
         <div className="md:col-span-2 bg-white p-6 rounded-xl shadow-sm border border-gray-200">
           <h3 className="font-bold text-gray-700 mb-4 flex items-center gap-2">
-            <i data-lucide="video" className="text-[#6b2132]"></i> 
-            Introducción al Modelo Educativo
+            <i data-lucide="video" className="text-[#6b2132]"></i>
+            Introducción al Modelo Educativo (5 opciones de evaluación)
           </h3>
-          <div className="aspect-video bg-gray-200 rounded-lg flex items-center justify-center relative cursor-pointer group">
-            <img 
-              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-              className="absolute inset-0 w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100 transition"
-              alt="Video introductorio"
-            />
-            <div className="bg-white/90 p-4 rounded-full shadow-xl z-10 group-hover:scale-110 transition">
-              <i data-lucide="play" className="w-8 h-8 text-[#6b2132] fill-current"></i>
-            </div>
-            <span className="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-2 py-1 rounded">
-              05:00
-            </span>
+          <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
+            <iframe
+              src="https://www.youtube.com/embed/dummy"
+              className="w-full h-full"
+              title="Video introductorio"
+              allowFullScreen
+            ></iframe>
           </div>
           <p className="text-sm text-gray-500 mt-3">
-            Resumen de las competencias ONU: Aprender a aprender, ser y convivir.
+            Auto-evaluación, Co-evaluación, Evaluación Continua, Sumativa y Hetero-evaluación.
           </p>
         </div>
 
-        {/* Panel de Avisos */}
+        {/* Avisos Recientes */}
         <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
           <h3 className="font-bold text-gray-700 mb-4">Avisos Recientes</h3>
           <ul className="space-y-4">
@@ -66,7 +58,32 @@ const Home = ({ onNavigate }) => {
               <p className="text-sm font-semibold">Actualización Didacmáx</p>
               <p className="text-xs text-gray-500">Versión parche disponible</p>
             </li>
+            <li className="border-l-4 border-green-400 pl-3 py-1">
+              <p className="text-sm font-semibold">Contrato Didáctico</p>
+              <p className="text-xs text-gray-500">Descargar y llenar para el lunes</p>
+            </li>
           </ul>
+          <button
+            onClick={() => onNavigate('Teoría de la Computación.')}
+            className="mt-4 w-full bg-[#6b2132] text-white py-2 rounded-lg text-sm hover:bg-opacity-90 transition"
+          >
+            Ir a la materia
+          </button>
+        </div>
+      </div>
+
+      {/* Sección de foto adicional (UPIICSA) */}
+      <div className="mt-8 bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex items-center gap-6">
+        <img
+          src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
+          alt="UPIICSA"
+          className="w-24 h-24 rounded-lg object-cover"
+        />
+        <div>
+          <h4 className="font-bold text-gray-800">Nuestra amada UPIICSA</h4>
+          <p className="text-sm text-gray-600">
+            Unidad Profesional Interdisciplinaria de Ingeniería y Ciencias Sociales y Administrativas.
+          </p>
         </div>
       </div>
     </div>

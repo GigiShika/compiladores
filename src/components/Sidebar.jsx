@@ -3,14 +3,9 @@ import React from 'react';
 
 const Sidebar = ({ currentView, onNavigate, isMobileOpen, onMobileClose }) => {
     const courses = [
-    { name: 'Ambientes de Programacion.', icon: 'server' },
     { name: 'Compiladores', icon: 'code-2' },
-    { name: 'Contexto Nacional III', icon: 'globe' },
-    { name: 'Sistemas Operativos', icon: 'cpu' },
-    { name: 'SO en Red', icon: 'network' },
     { name: 'Teoría de la Computación.', icon: 'book-open' },  // nombre exacto
     { name: 'Teoría de Lenguajes', icon: 'terminal' },
-    { name: 'UDF Maestria', icon: 'graduation-cap' },
   ];
 
   const generalPages = [

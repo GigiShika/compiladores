@@ -1,5 +1,6 @@
 // pages/Course.jsx
 import React, { useState, useEffect } from 'react';
+import { CONTENIDOS_MOCK } from '../data/mockGuionDidactico';
 
 const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -9,6 +10,13 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
       window.lucide.createIcons();
     }
   }, [currentPeriod]);
+
+  const unidades = CONTENIDOS_MOCK.reduce((acc, c) => {
+    const key = c.unidad_id;
+    if (!acc[key]) acc[key] = { unidad: c.unidad, contenidos: [] };
+    acc[key].contenidos.push(c);
+    return acc;
+  }, {});
 
   // Datos simulados para los documentos
   const documents = {
@@ -64,8 +72,8 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
             onClick={() => onPeriodChange(period)}
             className={`
               px-6 py-3 text-sm font-medium
-              ${currentPeriod === period 
-                ? 'border-b-2 border-[#6b2132] text-[#6b2132]' 
+              ${currentPeriod === period
+                ? 'border-b-2 border-[#6b2132] text-[#6b2132]'
                 : 'text-gray-500 hover:text-gray-700'
               }
             `}
@@ -76,7 +84,7 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
       </div>
 
       {/* Banner con foto de UPIICSA */}
-      <div 
+      <div
         className="relative rounded-xl overflow-hidden mb-8 h-48 bg-cover bg-center"
         style={{ backgroundImage: "url('https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80')" }}
       >
@@ -100,8 +108,8 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
             <p className="text-xs text-gray-500 mb-3">
               Documento Word para llenar con SI/NO, firmar y entregar.
             </p>
-            <a 
-              href={documents.contrato} 
+            <a
+              href={documents.contrato}
               download
               className="inline-flex items-center gap-2 bg-green-100 hover:bg-green-200 text-green-800 text-sm px-4 py-2 rounded-lg w-full justify-center"
             >
@@ -123,14 +131,14 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
               Auto-evaluación, Co-evaluación, Evaluación Continua, Sumativa, Hetero-evaluación.
             </p>
             <div className="aspect-video bg-gray-100 rounded mb-3">
-              <iframe 
-                src={documents.introEvaluacion} 
+              <iframe
+                src={documents.introEvaluacion}
                 className="w-full h-full rounded"
                 title="Video introductorio"
                 allowFullScreen
               ></iframe>
             </div>
-            <a 
+            <a
               href="#"
               className="text-sm text-green-700 hover:underline flex items-center gap-1"
             >
@@ -155,7 +163,7 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
               {['A: Evaluación Continua', 'B: Participaciones', 'C: Presentaciones', 'D: Proyecto Excelente', 'E: Exámenes'].map((opt, idx) => (
                 <div key={idx} className="flex items-center justify-between bg-green-50 p-2 rounded">
                   <span className="text-sm">{opt}</span>
-                  <a href={documents.rubricas[['A','B','C','D','E'][idx]]} download className="text-green-700 hover:text-green-900">
+                  <a href={documents.rubricas[['A', 'B', 'C', 'D', 'E'][idx]]} download className="text-green-700 hover:text-green-900">
                     <i data-lucide="download" className="w-4 h-4"></i>
                   </a>
                 </div>
@@ -175,8 +183,8 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
             <p className="text-xs text-gray-500 mb-3">
               Periodo {currentPeriod} - Formato Word ajustable.
             </p>
-            <a 
-              href={documents.planeacion} 
+            <a
+              href={documents.planeacion}
               download
               className="inline-flex items-center gap-2 bg-green-100 hover:bg-green-200 text-green-800 text-sm px-4 py-2 rounded-lg w-full justify-center"
             >
@@ -186,29 +194,7 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
           </div>
         </div>
 
-        {/* Guión Didáctico (Apuntes) */}
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
-          <div className="bg-green-600 h-2"></div>
-          <div className="p-5">
-            <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
-              <i data-lucide="book" className="text-green-600 w-5 h-5"></i>
-              Guión Didáctico
-            </h3>
-            <p className="text-xs text-gray-500 mb-3">
-              Apuntes por unidad (faltan 2 unidades por terminar).
-            </p>
-            <div className="space-y-2">
-              {documents.guionDidactico.map((unidad) => (
-                <div key={unidad.unidad} className="flex items-center justify-between">
-                  <span className="text-sm">Unidad {unidad.unidad}</span>
-                  <a href={unidad.file} download className="text-green-700 hover:text-green-900">
-                    <i data-lucide="download" className="w-4 h-4"></i>
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+
 
         {/* Guías de Estudio */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
@@ -322,7 +308,7 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
             <p className="text-xs text-gray-500 mb-3">
               Diseño Instruccional para Teoría de la Computación y Compiladores (en proceso).
             </p>
-            <a 
+            <a
               href="/Tesis"
               className="inline-flex items-center gap-2 bg-green-100 hover:bg-green-200 text-green-800 text-sm px-4 py-2 rounded-lg w-full justify-center"
             >
@@ -332,41 +318,85 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
           </div>
         </div>
       </div>
+      {/* guion */}
+      <>
+        <div className="mt-6">
+          <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-md transition">
+            <div className="bg-green-600 h-2"></div>
+            <div className="p-5">
+              <h3 className="font-bold text-gray-800 flex items-center gap-2 mb-2">
+                <i data-lucide="book" className="text-green-600 w-5 h-5"></i>
+                Guión Didáctico
+              </h3>
+              <p className="text-xs text-gray-500 mb-4">
+                Apuntes por unidad (faltan 2 unidades por terminar).
+              </p>
 
-      {/* Modal para contraseña (simulado) */}
-      {showPasswordModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-xl max-w-sm w-full">
-            <h3 className="text-lg font-bold mb-4">Evaluaciones de Reposición</h3>
-            <p className="text-sm text-gray-600 mb-4">
-              Ingrese la contraseña proporcionada por el profesor:
-            </p>
-            <input 
-              type="password" 
-              className="w-full p-2 border rounded mb-4"
-              placeholder="Contraseña"
-            />
-            <div className="flex justify-end gap-2">
-              <button 
-                onClick={() => setShowPasswordModal(false)}
-                className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded"
-              >
-                Cancelar
-              </button>
-              <button 
-                onClick={() => {
-                  alert('Descarga simulada (contraseña correcta)');
-                  setShowPasswordModal(false);
-                }}
-                className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-              >
-                Descargar
-              </button>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                {Object.values(unidades).map(({ unidad, contenidos }) => (
+                  <div key={unidad.unidad_id} className="bg-green-50 rounded-lg p-5 space-y-3">
+                    <p className="text-sm font-bold text-green-800 border-b border-green-200 pb-2">
+                      {unidad.nombre}
+                    </p>
+                    {contenidos.map((contenido) => (
+                      <div key={contenido.contenido_id} className="flex items-start justify-between gap-3 py-1">
+                        <span className="text-sm text-gray-700 leading-snug">{contenido.titulo}</span>
+                        <a
+                          href={contenido.url_recurso ?? '#'}
+                          download
+                          className="text-green-700 hover:text-green-900 shrink-0"
+                        >
+                          <i data-lucide="arrow-big-right" className="w-4 h-4" />
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
+
             </div>
           </div>
         </div>
-      )}
-    </div>
+      </>
+
+      {/* Modal para contraseña (simulado) */}
+      {
+        showPasswordModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white p-6 rounded-xl max-w-sm w-full">
+              <h3 className="text-lg font-bold mb-4">Evaluaciones de Reposición</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Ingrese la contraseña proporcionada por el profesor:
+              </p>
+              <input
+                type="password"
+                className="w-full p-2 border rounded mb-4"
+                placeholder="Contraseña"
+              />
+              <div className="flex justify-end gap-2">
+                <button
+                  onClick={() => setShowPasswordModal(false)}
+                  className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded"
+                >
+                  Cancelar
+                </button>
+                <button
+                  onClick={() => {
+                    alert('Descarga simulada (contraseña correcta)');
+                    setShowPasswordModal(false);
+                  }}
+                  className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+                >
+                  Descargar
+                </button>
+              </div>
+            </div>
+          </div>
+
+        )
+      }
+    </div >
+
   );
 };
 

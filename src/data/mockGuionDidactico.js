@@ -1465,17 +1465,6 @@ Introducción. - Debe captar inmediatamente la atención del público y decirle 
 Evitar introducciones deficientes: Un enunciado apologético; Un cuento o chiste que no está relacionado con su tema; Una observación común; Un enunciado o historia larga o lenta y Una pregunta trivial, tal como ¿Alguna vez te has detenido a pensar…? 
 Desarrollo. - No perder el punto principal, después dejar claro el subpunto y se puede llevar material de apoyo fácil de mostrar.
 Conclusión. - Puede ser la revisión de lo descrito, un resumen, llamado a la acción o enunciado digno de recordarlo.
-
-Evaluación: 1=Necesita atención 2=Puede mejorar 3=Satisfactorio 4=Superior 5=Excelente
-*Valor del discurso _____ Comentarios:______________________________
-*Preparación__________ Sugerencias:_______________________________
-*Organización_________ Correcciones:______________________________
-*Introducción_________ Se completó lo solicitado:_____________________
-*Desarrollo__________ Áreas de oportunidad:_________________________
-*Conclusión________ Se apegó a lo solicitado_________________________
-*Transiciones_______ Fueron aceptables_____________________________
-*Tiempo ____________Se respetó de 5 a 20 minutos:____________________
-SUMA DE PUNTOS: ______Máximo 8 x 5 = 40 puntos máximo = 10 de calificación (20 puntos = 5 de calificación 24 = 6, 28=7, 32=8, 36=9)
 `
     ]
   },

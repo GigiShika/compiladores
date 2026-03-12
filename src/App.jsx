@@ -17,7 +17,14 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Inicializar iconos Lucide
+  useEffect(() => {
+    const contentArea = document.getElementById('contentArea');
+    if (contentArea) {
+      contentArea.scrollTop = 0;
+    }
+  }, [currentView]);
+
+ 
   useEffect(() => {
     if (window.lucide) {
       window.lucide.createIcons();
@@ -29,7 +36,6 @@ function App() {
       case 'Inicio':
         return <Home onNavigate={setCurrentView} />;
 
-      // Solo Teoría de la Computación. tiene el contenido detallado
       case 'Teoría de la Computación.':
         return (
           <Course

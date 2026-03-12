@@ -6,12 +6,10 @@
 //
 // Props:
 //   contenido  — objeto de CONTENIDOS_MOCK (con campo contenido[])
-//   onBack     — función para regresar al curso
 
 import React, { useState, useEffect, useRef } from 'react';
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
-
 const isGoogleDriveUrl = (str) =>
     typeof str === 'string' && str.includes('drive.google.com');
 
@@ -207,6 +205,17 @@ const TextoBloque = ({ texto }) => {
 const UnidadPage = ({ contenido, onBack }) => {
     const [progreso, setProgreso] = useState(0);
 
+    // ✅ Scroll al contentArea al montar
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            const contentArea = document.getElementById('contentArea');
+            if (contentArea) {
+                contentArea.scrollTop = 0;
+            }
+        }, 50);
+        return () => clearTimeout(timer);
+    }, []);
+
     useEffect(() => {
         const handleScroll = () => {
             const el = document.documentElement;
@@ -216,9 +225,6 @@ const UnidadPage = ({ contenido, onBack }) => {
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
-
-    // Scroll al top al montar
-    useEffect(() => { window.scrollTo(0, 0); }, []);
 
     if (!contenido?.contenido) {
         return (
@@ -242,7 +248,6 @@ const UnidadPage = ({ contenido, onBack }) => {
 
     return (
         <div className="min-h-screen bg-gray-50">
-
             {/* ── Barra de progreso ── */}
             <div className="fixed top-0 left-0 right-0 h-1 bg-gray-200 z-50">
                 <div
@@ -285,7 +290,6 @@ const UnidadPage = ({ contenido, onBack }) => {
 
             {/* ── Body ── */}
             <main className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
-
                 {/* Hero */}
                 <div className="mb-10 rounded-2xl bg-gradient-to-br from-green-700 via-green-800 to-green-900 p-7 sm:p-10 text-white shadow-xl relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-56 h-56 rounded-full bg-white/5 -translate-y-1/3 translate-x-1/4 pointer-events-none" />

@@ -12,10 +12,31 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
       window.lucide.createIcons();
     }
   }, [currentPeriod]);
+
+  useEffect(() => {
+    if (!leccionActiva && window.lucide) {
+      setTimeout(() => {
+        window.lucide.createIcons();
+      }, 50);
+    }
+  }, [leccionActiva]);
   
-  if (leccionActiva) {
-    return <UnidadPage contenido={leccionActiva} onBack={() => setLeccionActiva(null)} />;
-  }
+if (leccionActiva) {
+  return (
+    <UnidadPage 
+      contenido={leccionActiva} 
+      onBack={() => {
+        setLeccionActiva(null);
+        setTimeout(() => {
+          const contentArea = document.getElementById('contentArea');
+          if (contentArea) {
+            contentArea.scrollTop = 0;
+          }
+        }, 50);
+      }} 
+    />
+  );
+}
 
   const unidades = CONTENIDOS_MOCK.reduce((acc, c) => {
     const key = c.unidad_id;

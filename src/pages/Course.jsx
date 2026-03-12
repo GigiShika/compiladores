@@ -1,15 +1,21 @@
 // pages/Course.jsx
 import React, { useState, useEffect } from 'react';
+import UnidadPage from './UnidadPage';
 import { CONTENIDOS_MOCK } from '../data/mockGuionDidactico';
 
 const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [leccionActiva, setLeccionActiva] = useState(null);
 
   useEffect(() => {
     if (window.lucide) {
       window.lucide.createIcons();
     }
   }, [currentPeriod]);
+  
+  if (leccionActiva) {
+    return <UnidadPage contenido={leccionActiva} onBack={() => setLeccionActiva(null)} />;
+  }
 
   const unidades = CONTENIDOS_MOCK.reduce((acc, c) => {
     const key = c.unidad_id;
@@ -341,13 +347,12 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
                     {contenidos.map((contenido) => (
                       <div key={contenido.contenido_id} className="flex items-start justify-between gap-3 py-1">
                         <span className="text-sm text-gray-700 leading-snug">{contenido.titulo}</span>
-                        <a
-                          href={contenido.url_recurso ?? '#'}
-                          download
+                        <button
+                          onClick={() => setLeccionActiva(contenido)}
                           className="text-green-700 hover:text-green-900 shrink-0"
                         >
                           <i data-lucide="arrow-big-right" className="w-4 h-4" />
-                        </a>
+                        </button>
                       </div>
                     ))}
                   </div>

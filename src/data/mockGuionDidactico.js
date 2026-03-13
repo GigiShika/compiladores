@@ -14,7 +14,7 @@ export const CONTENIDOS_MOCK = [
     orden: 1,
     url_recurso: null,
     unidad_id: 1,
-    unidad: { unidad_id: 1, nombre: 'Unidad I - Introducción y uso de autómatas en los compiladores' },
+    unidad: { unidad_id: 1, nombre: 'Unidad I - Bases teóricas para el diseño de compiladores' },
     contenido: [
       `Para poder definir el término de sistema formal, se tiene que definir primero cada uno de los subterminos que lo conforman.
 
@@ -81,7 +81,7 @@ La teoría de conjuntos es indispensable para las matemáticas discretas, siendo
     orden: 2,
     url_recurso: null,
     unidad_id: 1,
-    unidad: { unidad_id: 1, nombre: 'Unidad I - Introducción y uso de autómatas en los compiladores' },
+    unidad: { unidad_id: 1, nombre: 'Unidad I - Bases teóricas para el diseño de compiladores' },
     contenido: [
       `Un lenguaje es cualquier sistema de comunicación estructurado, para el que existen reglas de uso y ciertos principios combinatorios formales. Existen contextos naturales y artificiales; del mismo modo los lenguajes se dividen en tres principales que son: lenguaje humano, lenguaje animal y lenguaje formal.
 Los lenguajes formales son construcciones artificiales humanas, que se usan en matemáticas y otras áreas formales, incluyendo lenguajes de programación. Estas construcciones tienen estructuras internas que comparten con el lenguaje humano natural, por lo que pueden ser en parte analizados con los mismos conceptos que éste.
@@ -282,7 +282,7 @@ Ejemplos:
     orden: 3,
     url_recurso: null,
     unidad_id: 1,
-    unidad: { unidad_id: 1, nombre: 'Unidad I - Introducción y uso de autómatas en los compiladores' },
+    unidad: { unidad_id: 1, nombre: 'Unidad I - Bases teóricas para el diseño de compiladores' },
     contenido: [
       `LENGUAJE DE MÁQUINA.
 Es el sistema de códigos directamente interpretable por una máquina, como el procesador de un ordenador o computadora. Este lenguaje está compuesto por un conjunto de instrucciones que determinan acciones a ser tomadas por la máquina. Un programa de computadora consiste en una cadena de estas instrucciones de lenguaje de máquina (más datos). 
@@ -475,7 +475,7 @@ El primer compilador de Pascal desarrollado en Zurich por Wirth fue posible grac
     orden: 4,
     url_recurso: null,
     unidad_id: 1,
-    unidad: { unidad_id: 1, nombre: 'Unidad I - Introducción y uso de autómatas en los compiladores' },
+    unidad: { unidad_id: 1, nombre: 'Unidad I - Bases teóricas para el diseño de compiladores' },
     contenido: [
       `Estructura de un compilador.
 Un compilador es un programa, en el que pueden distinguirse dos subprogramas o fases principales: una fase de análisis, en la cual se lee el programa fuente y se estudia la estructura y el significado de este; y otra fase de síntesis, en la que se genera el programa objeto.
@@ -602,7 +602,7 @@ Un compilador es un programa que recibe como entrada un programa escrito en un l
     orden: 5,
     url_recurso: null,
     unidad_id: 1,
-    unidad: { unidad_id: 1, nombre: 'Unidad I - Introducción y uso de autómatas en los compiladores' },
+    unidad: { unidad_id: 1, nombre: 'Unidad I - Bases teóricas para el diseño de compiladores' },
     contenido: [
       `CONCEPTO
 Un compilador es un programa que recibe como entrada un programa escrito en un lenguaje X y deja otro programa escrito en un lenguaje Y. 
@@ -783,7 +783,7 @@ Hay muchas variaciones en la cantidad de optimación de código que ejecutan los
     orden: 1,
     url_recurso: null,
     unidad_id: 2,
-    unidad: { unidad_id: 2, nombre: 'Unidad II - Uso de Gramáticas' },
+    unidad: { unidad_id: 2, nombre: 'Unidad II - Autómatas Finitos' },
     contenido: [
       `Conceptos de expresiones regulares.
 Las expresiones regulares, aplicado a las ciencias computacionales, especifican la estructura de los datos integrados por cadenas, caracteres o símbolos. También conocido como un Lenguaje Regular o “Formal”.
@@ -921,13 +921,13 @@ Diagrama de un autómata finito no determinístico con ε – transiciones
   },
   {
     contenido_id: 7,
-    titulo: '2.2 ER a AFND con épsilon transiciones',
+    titulo: '2.2 Autómata Finito No Determinista (AFND) a Autómata Finito Determinista (AFD)',
     descripcion: 'Transformación de Expresiones Regulares a Autómatas Finitos No Deterministas con transiciones épsilon.',
     tipo: TipoContenido.LECCION,
     orden: 2,
     url_recurso: null,
     unidad_id: 2,
-    unidad: { unidad_id: 2, nombre: 'Unidad II - Uso de Gramáticas' },
+    unidad: { unidad_id: 2, nombre: 'Unidad II - Autómatas Finitos' },
     contenido: [
       `No Deterministas con épsilon (Ԑ) transiciones.
 
@@ -1022,13 +1022,13 @@ F = {qf}
   },
   {
     contenido_id: 8,
-    titulo: '2.3 AFND con épsilon a AFND sin épsilon',
+    titulo: '2.3 Autómata Finito No Determinista con épsilon (AFND-Ɛ) a Autómata Finito No Determinista (AFD)',
     descripcion: 'Transformación de AFND con épsilon a AFND sin épsilon.',
     tipo: TipoContenido.LECCION,
     orden: 3,
     url_recurso: null,
     unidad_id: 2,
-    unidad: { unidad_id: 2, nombre: 'Unidad II - Uso de Gramáticas' },
+    unidad: { unidad_id: 2, nombre: 'Unidad II - Autómatas Finitos' },
     contenido: [
       `El origen de los autómatas finitos probablemente se remonta a su uso implícito en máquinas electromecánicas, desde principios del siglo XX. En 1907, el matemático ruso Andréi Márkov formalizó un proceso llamado “cadena de Markov”, donde la ocurrencia de cada evento depende con una cierta probabilidad del evento anterior. Esta capacidad de "recordar" es utilizada posteriormente por los autómatas finitos, que poseen una memoria primitiva similar, en que la activación de un estado también depende del estado anterior, así como del símbolo o palabra presente en la función de transición.
 Posteriormente, en 1943, surge una primera aproximación formal de los autómatas finitos con el modelo neuronal de McCulloch-Pitts. Durante la década de 1950 prolifera su estudio, frecuentemente llamando seles “máquinas de secuencia”; se establecen muchas de sus propiedades básicas, incluyendo su interpretación como “lenguajes regulares” y, su equivalencia con las “expresiones regulares” abreviadas /ER/. Al final de esta década, en 1959, surge el concepto de “autómata finito no determinista” abreviado AFND en manos de los primeros  teóricos de la computación:
@@ -1073,13 +1073,13 @@ PASO 3. Se desarrolla otra tabla de transiciones con los nuevos estados
   },
   {
     contenido_id: 9,
-    titulo: '2.4 AFND sin épsilon a AFD',
+    titulo: '2.4 Lema de Arden, Conversión de Autómata Finito a Expresión Regular',
     descripcion: 'Transformación de Autómatas Finitos No Deterministas a Deterministas.',
     tipo: TipoContenido.TAREA,
     orden: 4,
     url_recurso: null,
     unidad_id: 2,
-    unidad: { unidad_id: 2, nombre: 'Unidad II - Uso de Gramáticas' },
+    unidad: { unidad_id: 2, nombre: 'Unidad II - Autómatas Finitos' },
     contenido: [
       `Estas transformaciones nos permiten llegar a un autómata mínimo cuyo procesamiento resulta más objetivo y práctico, y recordemos que un autómata finito no determinista, NO incluye una transición para cada uno de los símbolos del alfabeto, sin embargo, un ejemplo sencillo de presentar esto es cuando se tiene como únicos símbolos del alfabeto al 0 y al 1 o bien la letra “a” o “b”. 
 La parte aplicativa de los Autómatas Finitos es el hecho de que nosotros podemos realizar procesos de abstracción sobre el significado de dos o más símbolos, así como integrar con varios símbolos palabras como Si, No, Encendido, Apagado, Abierto Cerrado, Nombres, cualquier dato que nosotros queramos procesar y abstraer de forma “discreta”. Dependiendo de los datos o conjunto de símbolos concatenados que deseamos procesar se pueden diseñar Autómatas que de forma simbólica o discreta logren abstraer el comportamiento de sistemas tan simples como el comportamiento de una puerta que se abre y se cierra, imaginando que la A significa abrir y la C significa cerrar la puerta. 
@@ -1253,7 +1253,7 @@ F = {q0, q1, q2, q3}
     orden: 1,
     url_recurso: null,
     unidad_id: 3,
-    unidad: { unidad_id: 3, nombre: 'Unidad III - Implementación de un Analizador Léxico' },
+    unidad: { unidad_id: 3, nombre: 'Unidad III - Construcción de un analizador Léxico' },
     contenido: [
       `Los analizadores léxicos han tenido múltiples aplicaciones en el desarrollo de software de base, tales como los Sistemas Operativos y los protocolos de comunicación. Los recorridos del código fuente que se realizan dentro de los lenguajes ensambladores, intérpretes de instrucciones  y los compiladores. Todas estas herramientas requieren de un analizador léxico. Además de las aplicaciones de software de base se tienen convertidores o traductores tan simples como indispensables que convierten una cantidad escrita con números a su correspondiente representación escrita con lenguajes tales como el inglés, español, francés, etc. 
 Dentro de los sistemas teleinformáticas de gestión se requiere de un proceso indispensable de validar o identificar los datos numéricos requeridos o cualquier otro tipo de dato que debe entrar al procesamiento para generar resultados. A este proceso se le considera como FILTROS, dependiendo de las necesidades o requerimientos que son identificados símbolo por símbolo, carácter por carácter, integrando palabras o cadenas que se conocen como los componentes léxicos del lenguaje o código de entrada también denominado código fuente. 
@@ -1348,12 +1348,12 @@ El atributo liga se ha incluido en la tabla de ejemplo simplemente para facilita
   {
     contenido_id: 113,
     titulo: '3.2 Diseño o descripción de una aplicación que requiera el uso de un lenguaje de programación.',
-    descripcion: '',
+    descripcion: 'Construcción de una aplicación usando un lenguaje de programación (Java, C++, C)',
     tipo: TipoContenido.RECURSO,
     orden: 2,
     url_recurso: null,
     unidad_id: 3,
-    unidad: { unidad_id: 3, nombre: 'Unidad III - Implementación de un Analizador Léxico' },
+    unidad: { unidad_id: 3, nombre: 'Unidad III - Construcción de un Analizador Léxico' },
     contenido: [
       `CASO PRÁCTICO
 Usted se encuentra trabajando para una compañía desarrolladora de software a la medida. Su jefe se acaba de enterar que está llevando una unidad de aprendizaje de Teoría de Lenguajes y Compiladores, así que decide que es la persona ideal para el proyecto de uno de sus principales clientes. Se le asigna a asistir a una entrevista con el usuario a fin de obtener las especificaciones finales del último módulo del producto.
@@ -1414,12 +1414,12 @@ Esta es la definición de un BNFE el cual tiene a las variables NO terminales co
   {
     contenido_id: 11,
     titulo: '3.3 Diseño de un lenguaje simple de programación.',
-    descripcion: '',
+    descripcion: 'Construcción de un lenguaje de programación',
     tipo: TipoContenido.RECURSO,
     orden: 4,
     url_recurso: null,
     unidad_id: 3,
-    unidad: { unidad_id: 3, nombre: 'Unidad III - Implementación de un Analizador Léxico' },
+    unidad: { unidad_id: 3, nombre: 'Unidad III - Construcción de un Analizador Léxico' },
     contenido: [
       `La teoría sin la práctica se olvida. El aprendizaje además de ser un proceso intrapersonal, conviene que sea significativo, esto es, el que nos es útil para la vida o ganarnos un medio de ingresos económicos.
 
@@ -1476,80 +1476,460 @@ Conclusión. - Puede ser la revisión de lo descrito, un resumen, llamado a la a
     orden: 5,
     url_recurso: null,
     unidad_id: 3,
-    unidad: { unidad_id: 3, nombre: 'Unidad III - Implementación de un Analizador Léxico' },
+    unidad: { unidad_id: 3, nombre: 'Unidad III - Construcción de un Analizador Léxico' },
+	contenido: [ 
+		`DESARROLLAR un Analizador léxico puede ser algo tan trivial o sencillo como diseñar una expresión regular; hacer un traductor de cantidades numéricas a algún lenguaje que puede ser en español o en inglés de las cantidades numéricas, esta traducción requiere de una tabla de símbolos y un manejador de errores, mismo que podemos afirmar tiene un nivel medio de complejidad; Algo más complejo como crear un lenguaje de programación nuevo, pero; ¿Porque crear nuevos lenguajes? cuando ya casi son 3000 los lenguajes de programación de computadoras.
+En un principio se pensaba que la teoría de lenguajes y compiladores era el área exclusiva de los “gurús” de la computación, pero actualmente se pueden crear un sin fin de herramientas que requieren un analizador léxico que, con las herramientas adecuadas, como los intérpretes de instrucciones, nos permiten tener resultados inmediatos. Aquí vamos a presentar el planteamiento de analizadores léxicos que se pueden realizar con una sola línea de código que incluya una expresión regular para seleccionar de un archivo de texto, las cadenas, palabras o elementos que deseamos seleccionar. Para esto, se solicita que también se incluya el autómata Finito para cada expresión regular y sus resultados.
+	
+	Paso 1.-  Existe un archivo en formato de texto que contiene información relacionada con los lenguajes de programación de computadoras recopilados el:
+23 de enero de 1995. Disponible en: https://sites.google.com/site/upiicsasaramendez/Inicio/compiladores
+	
+Paso 2.- Descargue este archivo, analícelo y seleccione solo el nombre de los lenguajes enumerándolos, desplegarlos en pantalla, imprimiendo el número de lenguajes seleccionados para aproximarnos a los 2350 lenguajes de programación de computadoras que incluye dicho archivo, ordenados desde la letra A a la Z. Este proceso se le conoce como “filtro” dentro del procesamiento de datos. 
+Paso 3.- Desarrolle el Diagrama del Autómata Finito No determinista con épsilon transiciones de la expresión que más se aproxime a la selección solicitada en el paso anterior.
+`, `https://drive.google.com/file/d/1vxStUZp1Ctc5AVQuoXc_v4x_FpGmE39Z/view?usp=sharing`,
+`Para poder ejecutar este paso se requiere lo siguiente:
+Si se trabaja en ambiente UNIX o LINUX el lenguaje AWK se puede ejecutar directamente desde el intérprete de instrucciones del sistema operativo. También trabaja igual en ambientes de MAC. 
+Si se trabaja en ambientes Microsoft será necesario descargar el lenguaje intérprete AWK.EXE o GAWK.EXE  y tener este archivo en la misma carpeta que el archivo de texto. - LANGUAGE.TXT para poder ejecutar alguna de las siguientes expresiones regulares: / - / Esta expresión regular de un solo símbolo (guion intermedio) Servirá como prueba para ejecutar por primera vez, de la siguiente forma en el intérprete de instrucciones: awk “/ -  /” LANGUAGE.TXT
+La primera diagonal le indica a AWK el inicio de una expresión regular y la segunda diagonal, el final de la misma expresión regular. Sobre el archivo de entrada. 
+IMPORTANTE: Dependiendo de la versión del sistema operativo, puede requerir una doble comilla o comilla simple, así que se verifica que los dos archivos estén en la misma carpeta. SI No da resultados la expresión regular, se prueba con comilla sencilla.
+La  expresión regular de un solo símbolo queda así:
+r1 =  -
+Conversión a un autómata finito no determinista:`
+
+,`https://drive.google.com/file/d/1BOvn9lYmVT-KWwnwBu2YGelyEecXjHAu/view?usp=drive_link`,
+
+`Existe otra forma de ejecutar el AWK y es mediante un código guardado en un archivo de texto: En este caso será nombrado L.awk cuyo contenido es lo siguiente:
+# UPIICSA
+# TERORIA DE LENGUAJES Y COMPILADORES
+# PROF. SARA MENDEZ GARCIA
+BEGIN { print "LISTA DE LENGUAJES RECOPILADOS POR BILL KINNERSLEY.."
+        print "LISTA DE LOS LENGUAJES DE 1900 A 1999"
+FS = "    "}
+# LISTA DE LOS LENGUAJES DE 1900 A 1999
+ /19[0-9] [0-9]/ {
+ if(length ($2) != 0) {
+                n=n+1
+		print n, $2
+                }}
+END { print "---------------------"
+print "proceso terminado, suma de lenguajes…”, n 
+} 
+En este código la expresión regular queda limitada a seleccionar una fecha:
+
+/19[0-9][0-9]/ 
+
+Si se desea ejecutar este código, necesitamos teclear lo siguiente en el intérprete de instrucciones:
+
+   awk – f /19[0-9][0-9]/ l.awk language.txt
+
+También podemos incluir el redireccionamiento del resultado de esta expresión regular que funciona como analizador léxico con el símbolo > (mayor que) para guardar la salida en otro archivo, que en este caso es: “salida.txt” que si existe lo reemplaza y si no existe lo crea.
+
+   awk – f /19[0-9] [0-9]/ l.awk language.txt > salida.txt
+Conversión a un autómata finito no determinista:
+r2 = 19[0-9][0-9] `
+,`https://drive.google.com/file/d/1jh4jiJEiRHfSkR3eKvUdWEIrBEtJfHIz/view?usp=sharing`,
+
+`En este autómata se ha simplificado la concatenación de 4 símbolos correspondientes a una fecha que corresponde al formato del siglo XX 19.
+Los dos últimos dígitos al este autómata representado con un rango de valores, se incluye del cero al nueve y corresponde a todas las posibilidades desde 0, 1, 2, 3, 4, 5, 6, 7, 8 y 9.  
+IMPORTANTE: También es posible incluir en la ejecución de una expresión regular instrucciones del lenguaje awk para desde el intérprete de instrucciones con una sola línea de código generemos el desplegado de la selección con el número de lenguaje seleccionado de la siguiente forma:
+   awk /[a-z|A-Z|0-9] *] - / language.txt {n++; print n, $2}`
+,`https://drive.google.com/file/d/1XNV32KocHVyRfxxfNq8spm_gjWqGkdX7/view?usp=drive_link`,
+
+`Este autómata representa la posibilidad de tener cadenas escritas con mayúsculas, minúsculas o bien cadenas numéricas o la cadena vacía.
+
+EJERCICIO.
+Desarrolle un autómata que represente el comportamiento de una calculadora, así como su analizador léxico. El autómata (AFND con épsilon transiciones) tomará en consideración las operaciones que se realizan en el teclado de la calculadora, mismas que se muestra en la siguiente figura, con las siguientes consideraciones:
+
+La Tecla CE/C. Si se pulsa una vez, borra la última entrada (clear). Si se pulsa dos veces (Clear all), borra todo lo introducido hasta regresar al estado de iniciar nuevamente. El contenido del display se toma como independiente, esto es, la salida de resultados es un aspecto que no se incluye dentro del autómata. Existen teclas de doble función como El ON/OFF. La primera vez que se pulsa la tecla ON/OFF se interpreta como ON. La segunda que se oprime la tecla ON/OFF representa un OFF. Esta calculadora cuando se pone la pila siempre espera el pulsar el ON/OFF.
+
+Otras teclas que incluyen doble función son las que tienen el sombreado, todas éstas se activan con la tecla gris. Ejemplo: Para oprimir la función 2 al cubo (2 a la 3), se oprime primero el 2, luego la tecla gris, posteriormente se oprime la tecla Y a la x para luego oprimir el signo de igual y obtener el resultado.
+Los paréntesis sólo funcionan una vez. En el caso de las funciones y operaciones. Las funciones de logaritmo y anti-logaritmo (no necesitan la tecla gris) La tecla EE, permite introducir el exponente de ingeniería base 10.
+
+Existen funciones unarias, mismas que requieren un solo operador (operan con el último valor). También existen funciones binarias, las cuales requieren de dos valores (un ejemplo de funciones binarias son ex y yx).
+
+
+La calculadora realiza operaciones aritméticas como son la suma, resta, multiplicación y división. Se aceptan funciones trigonométricas, Seno, Coseno, Tangente, el número PI y la notación científica. Así como las funciones alternas del inverso del seno, inverso del coseno e inverso de la tangente.
+
+	`
+		]
   },
   {
     contenido_id: 12,
-    titulo: '3.5 Implementación con herramienta automatizada',
+    titulo: '3.5 Implementación con herramienta automatizada (JFLAP, MTSolution)',
     descripcion: 'Uso de herramientas como Lex/Flex para generar analizadores léxicos automáticamente.',
     tipo: TipoContenido.TAREA,
     orden: 6,
     url_recurso: null,
     unidad_id: 3,
-    unidad: { unidad_id: 3, nombre: 'Unidad III - Implementación de un Analizador Léxico' },
+    unidad: { unidad_id: 3, nombre: 'Unidad III - Construcción de un Analizador Léxico' },
+    contenido: [
+      `La herramienta automatizada que se va a utilizar para las prácticas de esta unidad de aprendizaje es AWK. Es un lenguaje intérprete completo de aplicación general. Dentro de las herramientas automatizadas las más versátiles son las que se conocen como “OPEN SOURCE”, esto significa que se encuentra el código fuente disponible de forma gratuita. Si a esto agregamos que AWK es multiplataforma ya que se diseñó para trabajar de forma “nativa” en los ambientes UNIX.
+
+Es muy parecido a lenguaje en C el cual permite integrar en el código expresiones regulares: C + /ER/ = awk
+PRONTUARIO DE AWK EN EXPRESIONES REGULARES /ER/
+En AWK, una expresión regular /ER/, es una de las siguientes:
+•	Un carácter, diferente de cualquier meta-carácter, como A, que empata consigo misma.
+•	La definición especial de un carácter o grupo de estas mediante meta-caracteres.
+•	La combinación de una o más /ER/ mediante operaciones.
+•	La sintáxis de las /ER/ en los patrones, comparaciones y funciones de cadena y búsqueda son:
+1)	/ER/
+2)	Expresión  ~ /ER/
+3)	Expresión ~/ER/
+4)	/ER/, /ER/
+
+METACARACTERES
+\ Secuencia de escape para presentar un carácter especial.
+^ Al inicio de una cadena
+$ Al final de una cadena
+. Cualquier carácter
+[ ] Clase o rango de caracteres
+| Operador de alternación
+( ) Delimitadores para el uso de operadores y expresiones
+*Cerradura de Klenee
++ Cerradura positiva
+? Cerrdura 0 o 1
+
+ METACARACTERES DE CLASE
+Dentro de una clase, todos los caracteres tienen un significado literal (entre corchetes) excepto
+- (guion intermedio) Entre dos caracteres representa un rango de caracteres
+\ (diagonal invertida) Conserva su comportamiento de meta-caracteres
+^ (circunflejo) Al inicio, representa el complemento de la clase de caracteres
+o de rango indicado.
+
+EJEMPLOS:
+/^C/ Empata con cualquier cadena con una C al inicio
+/C$/ Empata con cualquier cadena con una C al final
+/^C$/ Empata con una cadena con que sólo tenga una letra C
+/^.$/ Empata con una cadena que sólo tenga carácter cualquiera
+/^…/ Empata con una cadena que consiste en tres caracteres
+/…/ Empata con cualquier cadena consecutivos
+/\.$/ Empata con cualesquiera consecutivos que tenga un punto final
+/^\c/ Empata con cualesquiera consecutivos que empieza con c
+/[AEIOU]/ Empata con la cadena que tenga las letras interiores
+/[ABC]/  Empata con la cadena que empieza con A, B o C. 
+/^ [^^]/ Cualquier carácter excepto el circunflejo al inicio de la cadena
+/B*/ Cadena vacia, B, BB, BBB,…,∞
+/AB*C/   Genera:  AC, ABC, ABBC,…, ∞
+/AB+C/   Genera: ABC, ABBC, ABBBC,…, ∞
+`
+    ]
   },
 
   // ── UNIDAD IV ────────────────────────────────────────────
   {
     contenido_id: 13,
-    titulo: '4.1 Gramáticas Libres de Contexto',
+    titulo: '4.1 Gramáticas Regulares y Gramáticas Libres de Contexto',
     descripcion: 'Conceptos básicos, árboles de derivación y recursividad.',
     tipo: TipoContenido.LECCION,
     orden: 1,
     url_recurso: null,
     unidad_id: 4,
-    unidad: { unidad_id: 4, nombre: 'Unidad IV - Implementación de un Analizador Sintáctico' },
+    unidad: { unidad_id: 4, nombre: 'Unidad IV - Normalización de Gramáticas' },
   },
-  {
+
+    {
     contenido_id: 14,
-    titulo: '4.4 Forma Normal de Chomsky',
-    descripcion: 'Obtención de la Forma Normal de Chomsky de una gramática libre de contexto.',
+    titulo: '4.2 Obtención de una forma depurada (simplificada) de una gramática',
+    descripcion: 'Eliminación de aquellos símbolos que no derivan en terminales o son inalcanzables, producciones vacías e inconsistencias para simplificar el análisis sintáctico.',
+    tipo: TipoContenido.LECCION,
+    orden: 1,
+    url_recurso: null,
+    unidad_id: 4,
+    unidad: { unidad_id: 4, nombre: 'Unidad IV - Normalización de Gramáticas' },
+  },
+
+    {
+    contenido_id: 15,
+    titulo: '4.3 Obtención de la forma normal de Chomsky de una gramática libre de contexto',
+    descripcion: 'Simplificación de una gramática libre de contexto limitando sus producciones a dos tipos: no terminal derivando en dos no terminales y no terminal derivado en un único terminal',
+    tipo: TipoContenido.LECCION,
+    orden: 1,
+    url_recurso: null,
+    unidad_id: 4,
+    unidad: { unidad_id: 4, nombre: 'Unidad IV - Normalización de Gramáticas' },
+  },
+
+  {
+    contenido_id: 16,
+    titulo: '4.4 Obtención de la forma normal de Greibach de una Gramática Libre de Contexto',
+    descripcion: 'Eliminación de la recursión a la izquierda para garantizar que cada paso consuma exactamente un símbolo de la entrada, facilitando el diseño de autómatas de pila.',
     tipo: TipoContenido.LECCION,
     orden: 2,
     url_recurso: null,
     unidad_id: 4,
-    unidad: { unidad_id: 4, nombre: 'Unidad IV - Implementación de un Analizador Sintáctico' },
+    unidad: { unidad_id: 4, nombre: 'Unidad IV - Normalización de Gramáticas' },
   },
-  {
-    contenido_id: 15,
-    titulo: '4.5 Forma Normal de Greibach y Autómata de Pila',
-    descripcion: 'Transformación a Forma Normal de Greibach y generación del Autómata de Pila.',
-    tipo: TipoContenido.TAREA,
-    orden: 3,
-    url_recurso: null,
-    unidad_id: 4,
-    unidad: { unidad_id: 4, nombre: 'Unidad IV - Implementación de un Analizador Sintáctico' },
-  },
+
 
   // ── UNIDAD V ─────────────────────────────────────────────
   {
-    contenido_id: 16,
-    titulo: '5.1 Análisis Sintáctico Descendente Predictivo y gramáticas LL',
-    descripcion: 'Gramáticas LL y construcción de analizadores descendentes predictivos.',
+    contenido_id: 17,
+    titulo: '5.1 Análisis Sintáctico Descendente Predictivo y gramáticas LL y LR',
+    descripcion: 'Gramáticas LL, LR y construcción de analizadores descendentes predictivos.',
     tipo: TipoContenido.LECCION,
     orden: 1,
     url_recurso: null,
     unidad_id: 5,
-    unidad: { unidad_id: 5, nombre: 'Unidad V - Traducción Orientada por la Sintaxis' },
+    unidad: { unidad_id: 5, nombre: 'Unidad V - Implementación de un Analizador Sintáctico' },
+    contenido: [
+      `Un analizador sintáctico predictivo es un analizador sintáctico descendente recursivo que NO necesita marcha atrás. Su objetivo es tomar los tokens (palabras clasificadas) y verificar que sigan las reglas de una Gramática Libre de Contexto (GLC).
+Condición exigible a una gramática para que sea posible:
+–	En todo momento, a partir del siguiente token (palabras clasificadas) de entrada, sea posible determinar qué regla aplicar
+Esto es posible cuando (una de dos):
+–	ningún no terminal tiene alternativas en su parte derecha
+–	no terminales con alternativas que empiecen por distintos símbolos
+Este método construye el "árbol genealógico" de una instrucción empezando desde la regla más general (la raíz) hasta llegar a los símbolos específicos (las hojas).
+Se llama predictivo porque el analizador "adivina" qué regla aplicar mirando solo el siguiente símbolo de la entrada (llamado lookahead).
+Analogía: Es como armar un rompecabezas sabiendo de antemano que la imagen final es un paisaje. Si ves una pieza azul, "predices" que va en el cielo y no en el pasto.
+Análisis Sintáctico Descendente (LL)
+Este análisis intenta "predecir" qué regla de la gramática usar para llegar a los tokens que está leyendo.
+Las gramáticas LL tienen una debilidad: no pueden manejar reglas donde una definición empieza con ella misma.
+Ejemplo de error: Expresion -> Expresion + Numero.
+Esto falla porque el analizador entraría en un ciclo infinito intentando resolver Expresion antes de haber leído siquiera el primer número. Para usar LL, debemos refactorizar la gramática (quitar la recursividad).
+Primeros y Siguientes (First & Follow)
+Para que el análisis sea Predictivo, el compilador calcula dos conjuntos matemáticos:
+•	First (Primero): Los símbolos con los que puede empezar una regla.
+•	Follow (Siguiente): Los símbolos que pueden aparecer inmediatamente después de una regla.
+Con esto, se construye una Tabla de Análisis Sintáctico. Si la tabla tiene dos opciones en una misma celda, la gramática es ambigua y no es LL(1).
+Análisis Sintáctico Ascendente (LR)
+Este es más robusto y es el que utilizan herramientas profesionales como Yacc o Bison. Se basa en un autómata que maneja una Pila para ir guardando lo que lee.
+Operaciones principales (Shift y Reduce)
+•	Shift (Desplazar): Toma un token de la entrada y lo mete a la pila.
+•	Reduce (Reducir): Cuando los símbolos en la parte superior de la pila coinciden con el lado derecho de una regla gramatical, los "compacta" y los sustituye por el símbolo de la izquierda.
+Ejemplo: Si en la pila tengo id + id y mi regla es E -> id + id, el analizador "reduce" todo eso a una sola E.
+Jerarquía de los analizadores LR
+No todos los LR son iguales; varían según su potencia:
+•	LR(0): El más simple, no mira hacia adelante. Muy limitado.
+•	SLR (Simple LR): Usa el conjunto Follow para decidir cuándo reducir.
+•	LALR (Look-Ahead LR): Es el estándar de la industria. Es potente pero no requiere tablas gigantescas.
+•	LR(1): El más potente de todos, pero sus tablas de decisión pueden ser enormes (miles de estados).
+Ejemplo de una Gramática LL(1)
+Para que una gramática sea LL(1), no puede tener recursividad por la izquierda. Si la tuviera, el analizador caería en un bucle infinito al intentar expandir la regla. Por eso, las gramáticas LL suelen verse "desglosadas" con símbolos auxiliares (generalmente marcados con una comilla, como E' o T').
+Gramática para expresiones aritméticas (LL):
+E --> T E’
+E' --> + T E’ | Ɛ
+T --> F T’
+T’ --> *F T’ | Ɛ
+F --> (E) | id
+¿Por qué es LL? Observa que ninguna regla empieza por sí misma. El analizador puede leer el primer token y decidir exactamente qué camino tomar. La Ɛ representa el "vacío" o la terminación de la regla.
+      Ejemplo de una Gramática LR
+Las gramáticas LR son mucho más naturales y potentes. Pueden manejar la recursividad por la izquierda sin ningún problema, lo que las hace más cortas y fáciles de escribir para un humano. Gramática para expresiones aritméticas (LR):
+E --> E + T | T
+T --> T * F | F
+F --> (E) | id
+¿Por qué es LR? Aquí sí tenemos recursividad por la izquierda (E  E + T). Un analizador LR no tiene problema con esto porque, en lugar de intentar predecir, espera a "ver" toda la cadena (Shift) y luego la reduce (Reduce) cuando encuentra una coincidencia completa.
+      `
+    ]
   },
-  {
-    contenido_id: 17,
-    titulo: '5.3 Notaciones para especificar la sintaxis y tabla de símbolos',
-    descripcion: 'BNF, EBNF y otras notaciones para describir la sintaxis de lenguajes de programación.',
+
+    {
+    contenido_id: 18,
+    titulo: '5.2 Herramientas automatizadas para el desarrollo de un Analizador Sintáctico',
+    descripcion: 'Las herramientas automatizadas (Yacc o ANTLR) generan código para un analizador sintáctico a partir de una gramática formal, facilitando la construcción de compiladores.',
     tipo: TipoContenido.RECURSO,
     orden: 2,
     url_recurso: null,
     unidad_id: 5,
-    unidad: { unidad_id: 5, nombre: 'Unidad V - Traducción Orientada por la Sintaxis' },
+    unidad: { unidad_id: 5, nombre: 'Unidad V - Implementación de un Analizador Sintáctico' },
+    contenido: [
+    `Los ingenieros utilizan Generadores de Analizadores Sintácticos (también conocidos como Compiler-Compilers), en lugar de escribir miles de líneas de código a mano (lo cual es propenso a errores)
+
+Estas herramientas funcionan de manera que les entregas un archivo con las reglas de tu gramática (en un formato parecido a Notación BNF) y la herramienta "escupe" automáticamente el código fuente (en C, Java, Python, etc.) que realiza el análisis.
+
+1. GNU Bison (y el clásico Yacc)
+Resuelve la ambigüedad mediante el poder del análisis Ascendente (LR).
+
+•	Su objetivo es permitir que el programador defina gramáticas muy complejas (como las de C o C++) donde una palabra puede significar cosas distintas dependiendo de lo que viene después.
+•	Bison automatiza la gestión de una "pila de estados". Sabe exactamente cuándo una serie de símbolos ya forman una estructura completa (como una función) y debe ser "reducida".
+•	Genera tablas de decisión extremadamente compactas y rápidas, ideales para compiladores que deben procesar millones de líneas de código en segundos.
+
+2. ANTLR (ANother Tool for Language Recognition)
+Hace posible que el desarrollo de lenguajes sea humano, visual y multiplataforma.
+
+•	Su gran objetivo fue romper la limitación de los analizadores descendentes tradicionales (LL). ANTLR puede "mirar hacia adelante" de forma ilimitada en el código para decidir qué regla aplicar, algo que antes era imposible o muy lento.
+•	Permite que el programador separe las reglas de la gramática del código que ejecuta las acciones (usando "Listeners" o "Visitors"). Esto mantiene el código limpio y fácil de mantener.
+3. Flex (Fast Lexical Analyzer)
+La velocidad extrema en el reconocimiento de patrones.
+
+•	Su objetivo es convertir expresiones regulares complejas en un Autómata Finito Determinista (DFA). Esto significa que no importa qué tan larga sea la palabra, Flex la identificará en un tiempo constante.
+•	Sirve como el "portero" del analizador sintáctico. Su meta es eliminar comentarios, espacios en blanco y tabulaciones para que el analizador sintáctico reciba solo tokens útiles.
+
+4. JavaCC (Java Compiler Compiler)
+Integración total con el ecosistema de objetos de Java.
+
+•	A diferencia de Bison, su objetivo es generar código Java que tú mismo podrías leer y entender. Genera un método por cada regla de tu gramática.
+•	Permite insertar código Java directamente dentro de las reglas gramaticales para realizar validaciones en tiempo real (por ejemplo, verificar si una variable ya fue declarada antes de usarla).
+    `
+    ]
   },
+
   {
-    contenido_id: 18,
-    titulo: '5.4 Procedimientos para la tabla de análisis sintáctico',
-    descripcion: 'Cálculo de conjuntos Primero y Siguiente para construcción de tablas LL.',
-    tipo: TipoContenido.TAREA,
+    contenido_id: 19,
+    titulo: '5.3 Notaciones para especificar la sintaxis y tabla de símbolos',
+    descripcion: 'Direfentes notaciones para la estructura de un Lenguaje de progrmación',
+    tipo: TipoContenido.RECURSO,
     orden: 3,
     url_recurso: null,
     unidad_id: 5,
-    unidad: { unidad_id: 5, nombre: 'Unidad V - Traducción Orientada por la Sintaxis' },
+    unidad: { unidad_id: 5, nombre: 'Unidad V - Implementación de un Analizador Sintáctico'},
+    contenido: [
+      `Notaciones para la sintaxis
+1. BNF (Backus-Naur Form)
+La notación BNF es la base clásica para describir gramáticas independientes del contexto. Se utiliza para definir la estructura jerárquica de un lenguaje.
+•	Símbolos No Terminales: Se encierran entre paréntesis angulares < >. Representan estructuras que aún pueden descomponerse.
+•	Símbolos Terminales: Son los caracteres o palabras literales (ej. +, if, 0).
+•	Producción (::=): Significa "se define como".
+•	Alternación (|): El operador "OR" para elegir entre diferentes opciones.
+
+Ejemplo de un número entero en BNF:
+<digito> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
+<numero> ::= <digito> | <digito> <numero>
+Nota: La repetición en BNF se logra mediante recursividad (como se ve en <numero>).
+
+2. EBNF (Extended Backus-Naur Form)
+EBNF es una extensión que añade "azúcar sintáctica" para hacer las reglas más compactas y legibles, eliminando la necesidad de recursividad constante para listas simples.
+Operadores Clave:
+•	Opcional [ ]: Lo que está dentro puede aparecer 0 o 1 vez.
+•	Repetición { }: Lo que está dentro puede aparecer 0 o más veces (Cierre de Kleene).
+•	Agrupación ( ): Para aplicar operadores a un conjunto de símbolos.
+•	Terminales: Suelen ir entre comillas " ".
+
+El mismo ejemplo de número en EBNF:
+digito = "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" ;
+numero = digito { digito } ;
+
+En el flujo de compiladores, las ER se encargan del Análisis Léxico (tokens), mientras que BNF/EBNF se encargan del Análisis Sintáctico (estructura).
+Sin embargo, puedes ver a EBNF como una "super-ER". Mientras que una ER como [0-9]+ es plana, EBNF permite definir estructuras anidadas que una ER simple no puede (como paréntesis balanceados).
+Ejemplo: Reconocedor de Identificadores
+Se está diseñando un lenguaje donde un identificador (nombre de variable) debe empezar con una letra y puede seguir con letras o números.
+1. Definición en EBNF
+Primero definimos la estructura formal:
+letra = "a" | "b" | ... | "z" ;
+digito = "0" | "1" | ... | "9";
+identificador = letra {letra | digito};
+2. Conversión a Expresión Regular
+La parte {letra | digito} en EBNF equivale a la cerradura de Kleene (*) en ER:
+id =  letra (letra | digito)*
+
+
+3. Construcción del Diagrama de Transición (Autómata)
+Para dibujar el diagrama, seguimos estos estados:
+Estado q0 (Inicial): Espera una letra. Si recibe un dígito, es un error (cadena rechazada).
+Estado q1 (Aceptación): Se llega aquí tras la primera letra. Mientras sigan llegando letras o números, el autómata "cicla" sobre sí mismo.
+Supongamos que queremos reconocer números como 12, 3.14 o 0.5.
+EBNF: numero = digito { digito } [ "." digito { digito } ] ;
+Diagrama de Transición:`
+,`https://drive.google.com/file/d/172WtFUXFBkMsTFHyVBuYrxImMXAyOCWL/view?usp=sharing`,
+    ]
+  },
+
+  {
+    contenido_id: 20,
+    titulo: '5.4 Procedimientos para la tabla de análisis sintáctico',
+    descripcion: 'Cálculo de conjuntos Primero y Siguiente para construcción de tablas LL',
+    tipo: TipoContenido.TAREA,
+    orden: 4,
+    url_recurso: null,
+    unidad_id: 5,
+    unidad: { unidad_id: 5, nombre: 'Unidad V - Implementación de un Analizador Sintáctico' },
+    contenido: [
+      `Para construir una tabla de análisis sintáctico (específicamente para un analizador LL(1)), el objetivo es predecir qué regla de producción aplicar basándose en el símbolo actual de la entrada. Para lograrlo, la teoría de la computación define tres funciones fundamentales: PRIMERO, SIGUIENTE y PREDICCIÓN.
+1. Conjunto PRIMERO (FIRST)
+El conjunto PRIMERO(A) es el conjunto de todos los símbolos terminales (los que ya no se pueden descomponer, como +, if, id) que pueden aparecer al inicio de las cadenas derivadas de A.
+Reglas para calcularlo:
+•	Si X es un terminal, entonces PRIMERO(X) = {X}.
+•	Si hay una regla X --> Ɛ ( vacío), entonces Ɛ se agrega a PRIMERO(X).
+•	Si X --> Y1, Y2, ..., Yn es una regla:
+1.	Agregas todo lo que esté en PRIMERO(Y1).
+2.	Si Y1 puede ser vacío (Ɛ), entonces también agregas lo que esté en PRIMERO(Y2), y así sucesivamente.
+2. Conjunto SIGUIENTE (FOLLOW)
+El conjunto SIGUIENTE (A) es el conjunto de terminales que pueden aparecer inmediatamente después de A en alguna derivación.
+Reglas para calcularlo:
+•	Para el símbolo inicial de la gramática, coloca el símbolo $ (que indica el fin de la entrada) en su conjunto SIGUIENTE.
+
+•	Si tienes una regla A --> α B β:
+Todo lo que esté en PRIMERO (β) (excepto Ɛ) se agrega a SIGUIENTE(B).
+•	Si tienes una regla A --> α B o A --> α B β donde β puede ser vacío (Ɛ):
+Todo lo que esté en SIGUIENTE(A) se agrega a SIGUIENTE(B).      
+      `
+    ]
+  },
+  
+  {
+    contenido_id: 21,
+    titulo: '5.5 Implementación de un analizador Sintáctico con un lenguaje de programación (Java, C++, C)',
+    descripcion: 'Desarrollar e implementar analizadores sintácticos eficientes mediante el uso de herramientas automatizadas y lenguajes de programación de alto nivel',
+    tipo: TipoContenido.TAREA,
+    orden: 5,
+    url_recurso: null,
+    unidad_id: 5,
+    unidad: { unidad_id: 5, nombre: 'Unidad V - Implementación de un Analizador Sintáctico' },
+    contenido: [
+      `El compilador se divide en dos grandes etapas: 
+•	Análisis: Examina el programa fuente para descomponerlo en componentes y extraer su significado. 
+•	Síntesis:  Utiliza la información obtenida en el análisis para generar el programa equivalente en el lenguaje objeto.
+Estas dos etapas contienen seis fases principales:
+1.	Análisis léxico
+2.	Análisis Sintáctico
+3.	Análisis Semántico
+4.	Generación de código intermedio
+5.	Optimización de código
+6.	Generación de código final
+1.- Análisis Léxico
+El análisis léxico es la primera fase del compilador. Su función consiste en leer la cadena de caracteres del código fuente y agruparlos en unidades con significado mínimo llamadas componentes léxicos o tokens.
+
+
+Ejemplos de tokens:
+•	Identificadores (nombres de las variables)
+•	Palabras reservadas (BEING, END, IF, VAR, etc.)
+•	Operadores (+, -, *, /)
+•	Constantes numéricas o de texto
+Durante esta fase se genera una secuencia de tokens y se actualiza la tabla de símbolos con los identificadores detectados. 
+El analizador léxico suele estar implementado mediante autómatas finitos que reconocen patrones definidos por expresiones regulares.
+2.- Análisis Sintáctico
+En esta fase, los tokens producidos por el analizador léxico se agrupan en estructuras jerárquicas de acuerdo con las reglas gramaticales del lenguaje. El resultado es un árbol sintáctico, donde cada nodo representa una construcción del lenguaje.
+El análisis sintáctico verifica que las secuencias de tokens siguen la sintaxis correcta (por ejemplo, correspondencia de paréntesis o el orden adecuado de operadores).  
+Existen varios tipos de analizadores sintácticos, como los descendentes (LL) y ascendentes (LR). En el ejemplo del documento, se analiza la expresión: 
+posición := inicial + velocidad * 60 
+y se construye un árbol que refleja la precedencia de los operadores.
+3.- Análisis Semántico
+El análisis semántico examina el árbol sintáctico para verificar el significado del programa.  Se asegura de que las operaciones sean lógicamente válidas, por ejemplo, que los tipos de datos sean compatibles. 
+Durante esta etapa: 
+•	Se verifican los tipos de datos (por ejemplo, que no se sumen números enteros con cadenas).  
+•	Se completan los atributos en la tabla de símbolos (tipo, alcance, posición en memoria, etc.). 
+•	Se generan estructuras más abstractas como el árbol de sintaxis abstracta (AST), que representa la lógica del programa sin detalles sintácticos innecesarios.
+En el ejemplo, el compilador detecta que la constante 60 es entera, por lo que debe convertirse a tipo real antes de operar con variables de ese tipo.
+
+
+
+4.- Generación del código intermedio
+En esta fase se produce un código intermedio, que representa las operaciones del programa de forma independiente de la máquina. Este código debe ser fácil de generar y fácil de traducir posteriormente al lenguaje máquina. 
+Una forma común es el código de tres direcciones, donde cada instrucción contiene como máximo tres operandos.
+Por ejemplo: 
+temp1 := InToReal(60) 
+temp2 := id26 * temp1 
+temp3 := id24 + temp2 
+id25 := temp3 
+El código intermedio permite aplicar optimizaciones y facilita la portabilidad del compilador.
+5.- Optimización del código 
+La optimización busca mejorar el código intermedio reduciendo el consumo de tiempo o memoria, sin alterar su comportamiento.
+Ejemplos de optimizaciones: 
+•	Sustitución de expresiones constantes (InToReal(60) por 60.0). 
+•	Eliminación de código muerto o inalcanzable. 
+•	Reubicación de cálculos fuera de bucles. 
+•	Eliminación de variables temporales innecesarias. El nivel de optimización puede ser ajustable según las necesidades (por ejemplo, -O1, -O2, -O3 en compiladores modernos).
+El nivel de la optimización puede ser ajustable según las necesidades (por ejemplo, -01, -02, -03 en compiladores modernos).
+6.- Generación de código final
+En esta fase se traduce el código intermedio a instrucciones máquina o código ensamblador. 
+Se asignan direcciones de memoria y registros para las variables, y cada operación se convierte en una secuencia de instrucciones concretas. 
+Ejemplo de código máquina simplificado: 
+•	MOVF 0068, R2 
+•	MULF #60.0, R2 
+•	MOVF 0060, R1 
+•	ADDF R2, R1 
+•	MOVF R1, 0064 
+Aquí, cada instrucción corresponde a una operación aritmética o de movimiento, y las direcciones (0060H, 0064H, 0068H) representan posiciones asignadas en memoria.
+      `
+    ]
   },
 ];

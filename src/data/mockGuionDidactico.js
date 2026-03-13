@@ -1477,6 +1477,14 @@ Conclusión. - Puede ser la revisión de lo descrito, un resumen, llamado a la a
     url_recurso: null,
     unidad_id: 3,
     unidad: { unidad_id: 3, nombre: 'Unidad III - Implementación de un Analizador Léxico' },
+	contenido: [ 
+		`DESARROLLAR un Analizador léxico puede ser algo tan trivial o sencillo como diseñar una expresión regular; hacer un traductor de cantidades numéricas a algún lenguaje que puede ser en español o en inglés de las cantidades numéricas, esta traducción requiere de una tabla de símbolos y un manejador de errores, mismo que podemos afirmar tiene un nivel medio de complejidad; Algo más complejo como crear un lenguaje de programación nuevo, pero; ¿Porque crear nuevos lenguajes? cuando ya casi son 3000 los lenguajes de programación de computadoras.
+En un principio se pensaba que la teoría de lenguajes y compiladores era el área exclusiva de los “gurús” de la computación, pero actualmente se pueden crear un sin fin de herramientas que requieren un analizador léxico que, con las herramientas adecuadas, como los intérpretes de instrucciones, nos permiten tener resultados inmediatos. Aquí vamos a presentar el planteamiento de analizadores léxicos que se pueden realizar con una sola línea de código que incluya una expresión regular para seleccionar de un archivo de texto, las cadenas, palabras o elementos que deseamos seleccionar. Para esto, se solicita que también se incluya el autómata Finito para cada expresión regular y sus resultados.
+	
+		
+
+	`
+		]
   },
   {
     contenido_id: 12,

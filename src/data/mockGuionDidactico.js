@@ -1,3 +1,4 @@
+//data/mockGuionDidactico.js
 export const TipoContenido = {
   LECCION: 'leccion',
   RECURSO: 'recurso',

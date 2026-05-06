@@ -2,6 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import UnidadPage from './UnidadPage';
 import { CONTENIDOS_MOCK } from '../data/mockGuionDidactico';
+import { AreaComputacion } from '../data/enum';
+
+const mapViewToArea = {
+  "Teoría de Lenguajes": AreaComputacion.TEORIA_DE_LENGUAJES,
+  "Compiladores": AreaComputacion.COMPILADORES,
+  "Teoría de la Computación.": AreaComputacion.TEORIA_COMPUTACION
+};
 
 const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
@@ -20,30 +27,46 @@ const Course = ({ courseName, currentPeriod, onPeriodChange }) => {
       }, 50);
     }
   }, [leccionActiva]);
-  
-if (leccionActiva) {
-  return (
-    <UnidadPage 
-      contenido={leccionActiva} 
-      onBack={() => {
-        setLeccionActiva(null);
-        setTimeout(() => {
-          const contentArea = document.getElementById('contentArea');
-          if (contentArea) {
-            contentArea.scrollTop = 0;
-          }
-        }, 50);
-      }} 
-    />
-  );
-}
 
-  const unidades = CONTENIDOS_MOCK.reduce((acc, c) => {
-    const key = c.unidad_id;
-    if (!acc[key]) acc[key] = { unidad: c.unidad, contenidos: [] };
-    acc[key].contenidos.push(c);
-    return acc;
-  }, {});
+  if (leccionActiva) {
+    return (
+      <UnidadPage
+        contenido={leccionActiva}
+        onBack={() => {
+          setLeccionActiva(null);
+          setTimeout(() => {
+            const contentArea = document.getElementById('contentArea');
+            if (contentArea) {
+              contentArea.scrollTop = 0;
+            }
+          }, 50);
+        }}
+      />
+    );
+  }
+
+  const areaActual = mapViewToArea[courseName];
+
+  const contenidosFiltrados = CONTENIDOS_MOCK.filter(
+    (c) => c.area === areaActual
+  );
+
+  const unidades = contenidosFiltrados.reduce((acc, c) => {
+  const key = c.unidad_id;
+
+  if (!acc[key]) {
+    acc[key] = {
+      unidad: {
+        unidad_id: c.unidad.unidad_id,
+        nombre: c.unidad.nombre 
+      },
+      contenidos: []
+    };
+  }
+
+  acc[key].contenidos.push(c);
+  return acc;
+}, {});
 
   // Datos simulados para los documentos
   const documents = {
@@ -362,12 +385,16 @@ if (leccionActiva) {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
                 {Object.values(unidades).map(({ unidad, contenidos }) => (
                   <div key={unidad.unidad_id} className="bg-green-50 rounded-lg p-5 space-y-3">
+
                     <p className="text-sm font-bold text-green-800 border-b border-green-200 pb-2">
                       {unidad.nombre}
                     </p>
+
                     {contenidos.map((contenido) => (
                       <div key={contenido.contenido_id} className="flex items-start justify-between gap-3 py-1">
-                        <span className="text-sm text-gray-700 leading-snug">{contenido.titulo}</span>
+                        <span className="text-sm text-gray-700 leading-snug">
+                          {contenido.titulo}
+                        </span>
                         <button
                           onClick={() => setLeccionActiva(contenido)}
                           className="text-green-700 hover:text-green-900 shrink-0"
@@ -376,6 +403,7 @@ if (leccionActiva) {
                         </button>
                       </div>
                     ))}
+
                   </div>
                 ))}
               </div>

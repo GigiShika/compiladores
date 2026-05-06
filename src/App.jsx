@@ -37,6 +37,12 @@ function App() {
         return <Home onNavigate={setCurrentView} />;
 
       case 'Teoría de la Computación.':
+        return <OtherCourse courseName={currentView} />;
+        
+
+      // Las demás materias usan el componente genérico
+      case 'Ambientes de Programacion.':
+      case 'Compiladores':
         return (
           <Course
             courseName={currentView}
@@ -45,13 +51,17 @@ function App() {
           />
         );
 
-      // Las demás materias usan el componente genérico
-      case 'Ambientes de Programacion.':
-      case 'Compiladores':
       case 'Contexto Nacional III':
       case 'Sistemas Operativos':
       case 'SO en Red':
       case 'Teoría de Lenguajes':
+        return (
+          <Course
+            courseName={currentView}
+            currentPeriod={currentPeriod}
+            onPeriodChange={setCurrentPeriod}
+          />
+        );
       case 'UDF Maestria':
         return <OtherCourse courseName={currentView} />;
 

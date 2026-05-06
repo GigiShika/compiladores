@@ -1,3 +1,4 @@
+//data/mockData.jsx
 export const mockFiles = [
   { 
     name: 'Guía de Estudio Unidad 1', 

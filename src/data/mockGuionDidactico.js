@@ -20,13 +20,24 @@ export const CONTENIDOS_MOCK = [
           unidad_id: 1,
           unidad: { unidad_id: 1, nombre: 'UNIDAD I - INTRODUCCIÓN' },
           contenido: [
-      `Sara Méndez García. Licenciada en Ciencias de la Informática. Egresada de la UPIICSA generación 1979 – 1983.
-      
-       Seis años de experiencia laboral en el área de contabilidad y finanzas.
-       Dieciséis años de experiencia laboral en el Desarrollo de Sistemas de Información en el área de negocios, servicios y la banca.
-       Veinte años de experiencia en el área docente en instituciones públicas y privadas.
-       Actualmente profesor de tiempo completo de la UPIICSA y candidato a la maestría en Ciencias de la Informática de la UPIICSA-SEPI
-      
+      `# LIC. SARA MÉNDEZ GARCÍA`,
+  `---`,
+  `## Perfil Profesional`,
+  `Licenciada en **Ciencias de la Informática**, egresada de la **UPIICSA** generación 1979 – 1983.`,
+  ` `,
+  `## Experiencia Laboral`,
+  `* **Contabilidad:** Seis años de experiencia laboral en el área de contabilidad y finanzas.`,
+  `* **Sistemas:** Dieciséis años de experiencia laboral en el Desarrollo de Sistemas de Información.`,
+  `* **Docencia:** Veinte años de experiencia en el área docente en instituciones públicas y privadas.`,
+  ` `,
+  `## Descripción y Objetivos del Curso`,
+  `> Al término del curso, el alumno construirá un **prototipo de traductor** basándose en el funcionamiento de un compilador.`,
+  ` `,
+  `### Temario`,
+  `1. Introducción a la Teoría de Compiladores.`,
+  `2. Análisis Léxico.`,
+  `3. Análisis Sintáctico.`,
+			  `
       DESCRIPCIÓN Y OBJETIVOS DEL CURSO
       “Al término del curso, el alumno: Construirá un prototipo de traductor basándose en el funcionamiento de un compilador.”
       

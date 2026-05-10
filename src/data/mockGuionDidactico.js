@@ -20,7 +20,7 @@ export const CONTENIDOS_MOCK = [
           unidad_id: 1,
           unidad: { unidad_id: 1, nombre: 'UNIDAD I - INTRODUCCIÓN' },
           contenido: [
-      `Sara Méndez García. Licenciada en Ciencias de la Informática. Egresada de la UPIICSA generación 1979 – 1983.
+      `Sara Méndez García. Licenciada en Ciencias de la Informática. Egresada de la UPIICSA generación 1979 – 1983. PRUEBAS
       
        Seis años de experiencia laboral en el área de contabilidad y finanzas.
        Dieciséis años de experiencia laboral en el Desarrollo de Sistemas de Información en el área de negocios, servicios y la banca.

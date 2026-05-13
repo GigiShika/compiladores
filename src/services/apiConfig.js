@@ -1,14 +1,12 @@
-const LOCAL_GRAPHQL_API_URL = 'http://localhost:3001/graphql';
+const API_URL = process.env.REACT_APP_GRAPHQL_API_URL;
+
+export default API_URL;
 
 export function getGraphqlApiUrl() {
   const configuredUrl = process.env.REACT_APP_GRAPHQL_API_URL?.trim();
 
   if (configuredUrl) {
     return configuredUrl;
-  }
-
-  if (process.env.NODE_ENV === 'development') {
-    return LOCAL_GRAPHQL_API_URL;
   }
 
   return '/graphql';

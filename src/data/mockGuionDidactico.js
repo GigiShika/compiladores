@@ -20,16 +20,19 @@ export const CONTENIDOS_MOCK = [
           unidad_id: 1,
           unidad: { unidad_id: 1, nombre: 'UNIDAD I - INTRODUCCIÓN' },
           contenido: [
-      `Sara Méndez García. Licenciada en Ciencias de la Informática. Egresada de la UPIICSA generación 1979 – 1983.
-      
-       Seis años de experiencia laboral en el área de contabilidad y finanzas.
-       Dieciséis años de experiencia laboral en el Desarrollo de Sistemas de Información en el área de negocios, servicios y la banca.
-       Veinte años de experiencia en el área docente en instituciones públicas y privadas.
-       Actualmente profesor de tiempo completo de la UPIICSA y candidato a la maestría en Ciencias de la Informática de la UPIICSA-SEPI
-      
+      `"<h3>Perfil Profesional</h3>",
+  "<p>Sara Méndez García. Licenciada en Ciencias de la Informática. Egresada de la UPIICSA generación 1979 – 1983.</p>",
+  "<h4>Experiencia Laboral</h4>",
+  "<ul>",
+    "<li>Seis años de experiencia laboral en el área de contabilidad y finanzas.</li>",
+    "<li>Dieciséis años de experiencia laboral en el Desarrollo de Sistemas de Información.</li>",
+    "<li>Veinte años de experiencia en el área docente en instituciones públicas y privadas.</li>",
+  "</ul>",
+  "<h3>Descripción del Curso</h3>",
+  "<p>Al término del curso, el alumno: Construirá un prototipo de traductor basándose en el funcionamiento de un compilador.</p>"
       DESCRIPCIÓN Y OBJETIVOS DEL CURSO
       “Al término del curso, el alumno: Construirá un prototipo de traductor basándose en el funcionamiento de un compilador.”
-      
+      ``
       DESCRIPCIÓN DEL TEMARIO Y LA BIBLIOGRAFÍA
       Los temas para esta asignatura son 8 unidades, de las cuales siete son teóricas para comprender la teoría involucrada en el diseño de compiladores. Y la octava corresponde al proyecto que se dividirá en tres etapas para revisión de avances parciales. En cada uno de estos avances se revisará la documentación y el avance de los programas desarrollados para diseñar cada una de las etapas de análisis de un compilador experimental que se realizará con un lenguaje diseñado por alumnos para alumnos. Lo principal del proyecto debe ser la originalidad y su funcionalidad. Los detalles del desarrollo están descritos en la unidad ocho.
       
